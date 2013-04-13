@@ -1,0 +1,24 @@
+color status black blue
+
+unmy_hdr * # remove all extra headers first.
+my_hdr From: Hugo Roy <hugo@hugoroy.eu>
+set from = "hugo@hugoroy.eu"
+set sendmail = "/usr/bin/msmtp -a perso"
+set mbox = "+perso/Archives"
+set record = "+perso/Envoy&AOk-s"
+set postponed = "+perso/Brouillons"
+set signature = "~/.mutt/perso.signature" # my signature file
+set editor="vim -c 'set filetype=mkd' -c 'set spl=fr spell'"
+set forward_format = "[Tr] %s" # format for subject when forwarding
+
+fcc-hook "~f hugo@hugoroy.eu" =perso/INBOX
+save-hook "~f hugo@hugoroy.eu" =perso/Envoy&AOk-s
+save-hook "~C hugo@hugoroy.eu" =perso/Archives
+save-hook "~C hugo.roy@sciences-po.org" =perso/Archives.sciencespo
+save-hook "~C @sciences-po.fr" =perso/Archives.sciencespo
+fcc-save-hook "~C cgu-pas-lu@googlegroups.com" =perso/Archives.cgupaslu
+save-hook "~C -stobor@ampoliros.net" =perso/Archives.stobor
+
+subscribe cgu-pas-lu@googlegroups.com 
+
+macro index za   "<shell-escape>/usr/bin/offlineimap -a perso -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

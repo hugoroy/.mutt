@@ -1,0 +1,133 @@
+# options principales
+set folder=~/Mail # où chercher les emails en local
+set spoolfile=~/Mail/perso/INBOX # quel dossier afficher par défaut
+set mbox_type=Maildir
+set timeout=1800
+unset mark_old # retire le mode "old" pour ne garder que lu/nonlu
+set delete # don't ask, just do
+unset confirmappend # don't ask, just do!
+set quit # don't ask, just do!!
+
+# options index
+set sort=threads # organise par threads
+set sort_aux=last-date-received # les derniers emails reçus en bas, permet de bouger les threads également
+set uncollapse_jump # don't collapse on an unread message
+set sort_re # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+#options pager
+set pager_index_lines=9 # affiche le nombre de sujets en haut en mode pager
+set menu_scroll
+set smart_wrap
+set tilde
+unset markers #no ugly plus signs
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+#bindings pager and index
+bind pager <up> previous-line
+bind pager <down> next-line
+
+#macro
+macro index M "T.*\n;WN" "Mark all messages as read"
+macro index <F8> \
+    "<enter-command>unset wait_key<enter><shell-escape>/usr/bin/notmuch-mutt --prompt search<enter><change-folder-readonly>~/.cache/notmuch/mutt/results<enter>" \
+    "search mail (using notmuch)"
+macro index <F9> \
+    "<enter-command>unset wait_key<enter><pipe-message>/usr/bin/notmuch-mutt thread<enter><change-folder-readonly>~/.cache/notmuch/mutt/results<enter><enter-command>set wait_key<enter>" \
+    "search and reconstruct owning thread (using notmuch)"
+
+#format
+set date_format = "%a %d/%m/%y, %R"
+set index_format = "%4C %Z %D %-20.20F %?y?[%.20Y] ?%s %> %4c"
+#set index_format = "%4C %Z %{%b %d} %-15.15L (%4c) %s"
+##
+set folder_format="%2C %t %N %f %> %4s %d"
+set locale=fr_FR.UTF-8
+
+#édition de mails
+set realname="Hugo Roy"
+set envelope_from
+set sig_dashes
+set fast_reply
+set askcc=no
+set fcc_attach
+unset mime_forward # forward attachments as part of body
+set forward_format = "[Fwd] %s" # format for subject when forwarding
+set forward_decode # decode when forwarding
+set mime_forward=yes
+set mime_forward_rest=yes
+set attribution="Le %d, %n <%a>:"
+set reverse_name #reply as whomever it was to
+set include
+set forward_quote
+set reverse_name=yes
+set rfc2047_parameters=yes
+
+#headers
+ignore *
+unignore from: to: cc: date: subject: X-Label:
+hdr_order from: to: cc: date: subject: X-Label:
+
+#directories and commands
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/bodies"
+set tmpdir="~/.mutt/tmp
+set sendmail="/usr/bin/msmtp -a perso" #Envoyer les emails avec msmtp
+set print_command="muttprint"
+
+#sources
+source ~/.mutt/sidebar.muttrc
+
+# account specific sources
+folder-hook perso/* source ~/.mutt/perso.muttrc
+folder-hook fsfe/* source ~/.mutt/fsfe.muttrc
+folder-hook fsfe/INBOX.tosdr* source ~/.mutt/tosdr.muttrc
+send-hook "~f @tosdr.org" source ~/.mutt/tosdr.muttrc
+send-hook "~C @tosdr.org" source ~/.mutt/tosdr.muttrc
+folder-hook . "push <last-entry><current-middle>"
+
+#mailboxes
+mailboxes $MAIL
+mailboxes =perso/INBOX
+mailboxes =fsfe/INBOX
+mailboxes =fsfe/INBOX.campaigns
+mailboxes =fsfe/INBOX.exe
+mailboxes =fsfe/INBOX.exe.ga
+mailboxes =fsfe/INBOX.exe.team
+mailboxes =fsfe/INBOX.exe.team.reports
+mailboxes =fsfe/INBOX.france
+mailboxes =fsfe/INBOX.legal
+mailboxes =fsfe/INBOX.legal.network
+mailboxes =fsfe/INBOX.legal.network.sig-app
+mailboxes =fsfe/INBOX.legal.network.sig-proc
+mailboxes =fsfe/INBOX.legal.network.sig-swlink
+mailboxes =fsfe/INBOX.lists
+mailboxes =fsfe/INBOX.lists.debian
+mailboxes =fsfe/INBOX.lists.unhosted
+mailboxes =fsfe/INBOX.mod
+mailboxes =fsfe/INBOX.reports
+mailboxes =fsfe/INBOX.tosdr
+mailboxes =fsfe/INBOX.tosdr.group
+mailboxes =fsfe/INBOX.trad
+mailboxes =fsfe/INBOX.web
+
+
+# colours
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+
+color index brightyellow black ~N
+color index yellow black ~O
+color index magenta black ~F
+color index blue black ~T
+color index red black ~D
+
+#  Colorize smileys:  :-)  ;-)  :-/  :-(
+color body  yellow black "[;:]-[)/(|]"
+color body  yellow black "[;:][)/(|]"
+color body  blue black "[[:alpha:]]\+://[^ ]*"
+
