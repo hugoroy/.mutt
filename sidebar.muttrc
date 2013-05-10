@@ -3,7 +3,7 @@
 
 # set up the sidebar, default not visible
 set sidebar_width=19
-set sidebar_visible=yes
+set sidebar_visible=no
 set sidebar_delim=" "
 set sidebar_shortpath = yes
 

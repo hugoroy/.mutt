@@ -16,3 +16,4 @@ save-hook "~C tosdr@googlegroups.com" =fsfe/INBOX.Archives.tosdr.group
 
 fcc-hook "~f hugo@tosdr.org" =fsfe/INBOX.tosdr
 fcc-hook "~C team@tosdr.org" =fsfe/INBOX.tosdr
+fcc-hook "~C tosdr@googlegroups.com" =fsfe/INBOX.tosdr.group

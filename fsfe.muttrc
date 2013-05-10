@@ -5,28 +5,45 @@ my_hdr From: Hugo Roy <hugo@fsfe.org>
 set from = "hugo@fsfe.org"
 set sendmail = "/usr/bin/msmtp -a fsfe"
 set mbox = "+fsfe/INBOX.Archives"
-set record = "+fsfe/INBOX.Envoy&AOk-s"
+set record = "+fsfe/INBOX"
 set postponed = "+fsfe/INBOX.Brouillons"
 set signature = "~/.mutt/fsfe.signature" # my signature file
 set editor = "vim -c 'set filetype=mkd' -c 'set spell spl=en_gb'"
 
-fcc-hook "~f hugo@fsfe.org" =fsfe/INBOX
-save-hook "~f hugo@fsfe.org" =fsfe/INBOX.Envoy&AOk-s
-save-hook "~C hugo@fsfe.org" =fsfe/INBOX.Archives
-save-hook "~C hugo@tosdr.org" =fsfe/INBOX.tosdr
-save-hook "~C team@tosdr.org" =fsfe/INBOX.tosdr
+# fcc-hook "~f hugo@fsfe.org"     =fsfe/INBOX
+save-hook "~f hugo@fsfe.org"      =fsfe/INBOX.Envoy&AOk-s
+save-hook "~C hugo@fsfe.org"      =fsfe/INBOX.Archives
+save-hook "~C hugo@tosdr.org"     =fsfe/INBOX.tosdr
+save-hook "~C team@tosdr.org"     =fsfe/INBOX.tosdr
 save-hook "~C team@fsfeurope.org" =fsfe/INBOX.Archives.exe
-fcc-hook "~C team@fsfeurope.org" =fsfe/INBOX.Envoy&AOk-s
+fcc-hook "~C team@fsfeurope.org"  =fsfe/INBOX.Envoy&AOk-s
 
-fcc-save-hook "~C discussion@fsfeurope.org" =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C tosdr@googlegroups.com" =fsfe/INBOX.Archives.tosdr.group
-fcc-save-hook "~C opennotice@googlegroups.com" =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C discussion@laquadrature.net" =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C juridique@laquadrature.net" =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C -owner@fsfeurope.org"                 =fsfe/INBOX.Archives.lists.mod
+fcc-save-hook "~C -owner@lists.fsfe.org"                =fsfe/INBOX.Archives.lists.mod
+fcc-save-hook "~C discussion@fsfeurope.org"             =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C discutons@fsfeurope.org"              =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C <legal@fsfeurope.org>"                =fsfe/INBOX.Archives.legal
+fcc-save-hook "~C ftf-team@fsfeurope.org"               =fsfe/INBOX.Archives.legal
+fcc-save-hook "~C ftf-legal@fsfeurope.org"              =fsfe/INBOX.Archives.legal.network
+fcc-save-hook "~C paris@lists.fsfe.org"                 =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C coordinators@lists.fsfe.org"          =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C consensus@gnu.org"                    =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C tosdr@googlegroups.com"               =fsfe/INBOX.Archives.tosdr.group
+fcc-save-hook "~C unhosted@googlegroups.com"            =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C opennotice@googlegroups.com"          =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C discussion@laquadrature.net"          =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C juridique@laquadrature.net"           =fsfe/INBOX.Archives.lists
 fcc-save-hook "~C ateliers@manufacture-des-savoirs.net" =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C atelier@april.org" =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C juridique@april.org" =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C atelier@april.org"                    =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C juridique@april.org"                  =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C all-april@april.org"                  =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C liste-infos@april.org"                =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C membres@chtinux.org"                  =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C annonces@chtinux.org"                 =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C hub@icg.greens-efa.eu"                =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C okfn-fr@lists.okfn.org"               =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C netneutrality@laquadrature.net"       =fsfe/INBOX.Archives.lists
 
-subscribe team@tosdr.org team@fsfeurope.org ga@fsfeurope.org legal@fsfeurope.org
+subscribe team@tosdr.org team@fsfeurope.org ga@fsfeurope.org legal@fsfeurope.org discutons@fsfeurope.org legal@fsfeurope.org ftf-team@fsfeurope.org ftf-legal@fsfeurope.org discussion@fsfeurope.org paris@lists.fsfe.org coordinators@lists.fsfe.org consensus@gnu.org tosdr@googlegroups.com unhosted@googlegroups.com opennotice@googlegroups.com discussion@laquadrature.net juridique@laquadrature.net ateliers@manufacture-des-savoirs.net atelier@april.org juridique@april.org membres@chtinux.org annonces@chtinux.org hub@icg.greens-efa.eu okfn-fr@lists.okfn.org
 
 macro index za   "<shell-escape>/usr/bin/offlineimap -a fsfe -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
