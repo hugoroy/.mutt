@@ -1,0 +1,37 @@
+## Email addresses.                                      
+color body  blue black  "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+color attachment green black
+color tree brightblack black
+
+# index
+
+
+## Header                       
+color header cyan black "^from:"
+color header cyan black "^to:"
+color header cyan black "^cc:"
+color header cyan black "^date:"
+color header cyan black "^newsgroups:"
+color header cyan black "^reply-to:"
+color header white black "^subject:"
+color header brightblack black "^x-spam-rule:"
+
+# coloring quoted text
+color quoted blue black
+color quoted1 cyan black
+color quoted2 green black
+color quoted3 yellow black
+color quoted4 white black
+color quoted5 blue default
+color quoted6 cyan default
+color quoted6 green default
+
+## pgp
+
+color body          red             black         "(BAD signature)"
+color body          cyan            black         "(Good signature)"
+color body          brightblack     black         "^gpg: Good signature .*"
+color body          green    black         "^gpg: Bonne signature.* "
+color body          red    black             "^gpg: BAD signature from.*"
+color body          red    black             "^gpg: Mauvaise signature.*"
