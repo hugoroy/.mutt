@@ -9,15 +9,15 @@ set record = "+fsfe/INBOX"
 set postponed = "+fsfe/INBOX.Brouillons"
 set signature = "~/.mutt/fsfe.signature" # my signature file
 set editor = "vim -c 'set filetype=mkd' -c 'set spell spl=en_gb'"
+set locale=en_GB.UTF-8
 
 # fcc-hook "~f hugo@fsfe.org"     =fsfe/INBOX
-save-hook "~f hugo@fsfe.org"      =fsfe/INBOX.Envoy&AOk-s
+save-hook "~f hugo@fsfe.org"      =fsfe/INBOX.Archives
 save-hook "~C hugo@fsfe.org"      =fsfe/INBOX.Archives
 save-hook "~C hugo@tosdr.org"     =fsfe/INBOX.tosdr
 save-hook "~C team@tosdr.org"     =fsfe/INBOX.tosdr
-save-hook "~C team@fsfeurope.org" =fsfe/INBOX.Archives.exe
-fcc-hook "~C team@fsfeurope.org"  =fsfe/INBOX.Envoy&AOk-s
 
+fcc-save-hook "~C team@fsfeurope.org"                   =fsfe/INBOX.Archives.exe
 fcc-save-hook "~C -owner@fsfeurope.org"                 =fsfe/INBOX.Archives.lists.mod
 fcc-save-hook "~C -owner@lists.fsfe.org"                =fsfe/INBOX.Archives.lists.mod
 fcc-save-hook "~C discussion@fsfeurope.org"             =fsfe/INBOX.Archives.lists
@@ -43,7 +43,8 @@ fcc-save-hook "~C annonces@chtinux.org"                 =fsfe/INBOX.Archives.lis
 fcc-save-hook "~C hub@icg.greens-efa.eu"                =fsfe/INBOX.Archives.lists
 fcc-save-hook "~C okfn-fr@lists.okfn.org"               =fsfe/INBOX.Archives.lists
 fcc-save-hook "~C netneutrality@laquadrature.net"       =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C public-restrictedmedia@w3.org" =fsfe/INBOX.Archives.lists
 
-subscribe team@tosdr.org team@fsfeurope.org ga@fsfeurope.org legal@fsfeurope.org discutons@fsfeurope.org legal@fsfeurope.org ftf-team@fsfeurope.org ftf-legal@fsfeurope.org discussion@fsfeurope.org paris@lists.fsfe.org coordinators@lists.fsfe.org consensus@gnu.org tosdr@googlegroups.com unhosted@googlegroups.com opennotice@googlegroups.com discussion@laquadrature.net juridique@laquadrature.net ateliers@manufacture-des-savoirs.net atelier@april.org juridique@april.org membres@chtinux.org annonces@chtinux.org hub@icg.greens-efa.eu okfn-fr@lists.okfn.org
+subscribe team@tosdr.org team@fsfeurope.org ga@fsfeurope.org legal@fsfeurope.org discutons@fsfeurope.org legal@fsfeurope.org ftf-team@fsfeurope.org ftf-legal@fsfeurope.org discussion@fsfeurope.org paris@lists.fsfe.org coordinators@lists.fsfe.org consensus@gnu.org tosdr@googlegroups.com unhosted@googlegroups.com opennotice@googlegroups.com discussion@laquadrature.net juridique@laquadrature.net ateliers@manufacture-des-savoirs.net atelier@april.org juridique@april.org membres@chtinux.org annonces@chtinux.org hub@icg.greens-efa.eu okfn-fr@lists.okfn.org netneutrality@laquadrature.net public-restrictedmedia@w3.org
 
 macro index za   "<shell-escape>/usr/bin/offlineimap -a fsfe -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
