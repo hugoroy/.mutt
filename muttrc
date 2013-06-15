@@ -58,7 +58,7 @@ set forward_format = "[Fwd] %s" # format for subject when forwarding
 set forward_decode # decode when forwarding
 set mime_forward=yes
 set mime_forward_rest=yes
-set attribution="# %D, %n <%a>:"
+set attribution="+ %D, %n <%a>:"
 set reverse_name #reply as whomever it was to
 set include
 set forward_quote
