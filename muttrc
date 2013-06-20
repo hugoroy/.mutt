@@ -4,6 +4,7 @@ set spoolfile=~/Mail/perso/INBOX # quel dossier afficher par défaut
 set mbox_type=Maildir
 set timeout=1800
 unset mark_old # retire le mode "old" pour ne garder que lu/nonlu
+set copy                 # save copies of sent messages
 set delete # don't ask, just do
 unset confirmappend # don't ask, just do!
 set quit # don't ask, just do!!
@@ -11,6 +12,7 @@ set quit # don't ask, just do!!
 # options index
 set sort=threads # organise par threads
 set sort_aux=last-date-received # les derniers emails reçus en bas, permet de bouger les threads également
+# unset collapse_unread # don't collapse threads with unread mails
 set uncollapse_jump # don't collapse on an unread message
 set sort_re # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
