@@ -5,7 +5,11 @@ color attachment green black
 color tree brightblack black
 
 # index
-
+color index brightyellow black ~N
+color index yellow black ~O
+color index magenta black ~F
+color index blue black ~T
+color index red black ~D
 
 ## Header                       
 color header cyan black "^from:"
@@ -34,4 +38,11 @@ color body          cyan            black         "(Good signature)"
 color body          brightblack     black         "^gpg: Good signature .*"
 color body          green    black         "^gpg: Bonne signature.* "
 color body          red    black             "^gpg: BAD signature from.*"
-color body          red    black             "^gpg: Mauvaise signature.*"
+color body          red    black             "^gpg: MAUVAISE signature.*"
+
+#  Colorize smileys:  :-)  ;-)  :-/  :-(
+color body  yellow black "[;:]-[)/(|]"
+color body  yellow black "[;:][)/(|]"
+color body  blue black "[[:alpha:]]\+://[^ ]*"
+color body  yellow black "☺" 
+color body  yellow black "☹"

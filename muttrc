@@ -124,15 +124,3 @@ mailboxes =fsfe/INBOX.web
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 source ~/.mutt/colors/hugo.muttrc
 
-color index brightyellow black ~N
-color index yellow black ~O
-color index magenta black ~F
-color index blue black ~T
-color index red black ~D
-
-#  Colorize smileys:  :-)  ;-)  :-/  :-(
-color body  yellow black "[;:]-[)/(|]"
-color body  yellow black "[;:][)/(|]"
-color body  blue black "[[:alpha:]]\+://[^ ]*"
-color body  yellow black "☺" 
-color body  yellow black "☹"

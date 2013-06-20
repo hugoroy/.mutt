@@ -38,3 +38,7 @@ set crypt_replysignencrypted=yes
 
 # automatically verify the sign of a message when opened
 set crypt_verify_sig=yes
+
+# Good Handle For PGP-Inline in http://dev.mutt.org/trac/wiki/ConfigTricks
+message-hook '!~g !~G ~b "^-----BEGIN PGP (SIGNED )?MESSAGE"' 'exec check-traditional-pgp'
+
