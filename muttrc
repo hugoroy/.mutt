@@ -33,12 +33,7 @@ bind pager <down> next-line
 
 #macro
 macro index M "T.*\n;" "Mark all messages"
-macro index <F8> \
-    "<enter-command>unset wait_key<enter><shell-escape>/usr/bin/notmuch-mutt --prompt search<enter><change-folder-readonly>~/.cache/notmuch/mutt/results<enter>" \
-    "search mail (using notmuch)"
-macro index <F9> \
-    "<enter-command>unset wait_key<enter><pipe-message>/usr/bin/notmuch-mutt thread<enter><change-folder-readonly>~/.cache/notmuch/mutt/results<enter><enter-command>set wait_key<enter>" \
-    "search and reconstruct owning thread (using notmuch)"
+source ~/.mutt/notmuch.muttrc 
 
 #format
 set date_format = "%Y-%m-%d %a %R"
@@ -95,6 +90,8 @@ folder-hook . "push <last-entry><current-middle>"
 mailboxes $MAIL
 mailboxes =perso/INBOX
 mailboxes =fsfe/INBOX
+mailboxes =fsfe/INBOX.todo
+mailboxes =fsfe/INBOX.w3c.restrictedmedia
 mailboxes =fsfe/INBOX.campaigns
 mailboxes =fsfe/INBOX.exe
 mailboxes =fsfe/INBOX.exe.ga
