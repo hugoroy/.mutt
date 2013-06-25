@@ -90,6 +90,10 @@ folder-hook . "push <last-entry><current-middle>"
 mailboxes $MAIL
 source ~/.mutt/mailboxes
 
+#goobook according to https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
+set query_command="goobook query '%s'"
+bind editor <Tab> complete-query
+macro index,pager a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
 
 # colours
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
