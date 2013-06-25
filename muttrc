@@ -93,7 +93,7 @@ source ~/.mutt/mailboxes
 #goobook according to https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
 set query_command="goobook query '%s'"
 bind editor <Tab> complete-query
-macro index,pager a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+macro index,pager A "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
 
 # colours
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
@@ -101,4 +101,5 @@ macro index,pager a "<pipe-message>goobook add<return>" "add the sender address 
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 source ~/.mutt/colors/hugo.muttrc
+
 

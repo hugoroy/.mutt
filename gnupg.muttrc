@@ -42,3 +42,5 @@ set crypt_verify_sig=yes
 # Good Handle For PGP-Inline in http://dev.mutt.org/trac/wiki/ConfigTricks
 message-hook '!~g !~G ~b "^-----BEGIN PGP (SIGNED )?MESSAGE"' 'exec check-traditional-pgp'
 
+#inform your recipient of the web address of your public key
+my_hdr X-PGP-Key: http://hugoroy.eu/Hugo-Roy-pub-B3D7B795-2013-2016.txt
