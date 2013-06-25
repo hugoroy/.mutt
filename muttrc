@@ -64,7 +64,7 @@ set rfc2047_parameters=yes
 #headers
 ignore *
 unignore from: to: cc: date: subject: X-Label:
-hdr_order from: to: cc: date: subject: X-Label:
+hdr_order from: to: cc: date: X-Label: subject: 
 
 #directories and commands
 set header_cache="~/.mutt/cache/headers"
@@ -88,30 +88,7 @@ folder-hook . "push <last-entry><current-middle>"
 
 #mailboxes
 mailboxes $MAIL
-mailboxes =perso/INBOX
-mailboxes =fsfe/INBOX
-mailboxes =fsfe/INBOX.todo
-mailboxes =fsfe/INBOX.w3c.restrictedmedia
-mailboxes =fsfe/INBOX.campaigns
-mailboxes =fsfe/INBOX.exe
-mailboxes =fsfe/INBOX.exe.ga
-mailboxes =fsfe/INBOX.exe.team
-mailboxes =fsfe/INBOX.exe.team.reports
-mailboxes =fsfe/INBOX.france
-mailboxes =fsfe/INBOX.legal
-mailboxes =fsfe/INBOX.legal.network
-mailboxes =fsfe/INBOX.legal.network.sig-app
-mailboxes =fsfe/INBOX.legal.network.sig-proc
-mailboxes =fsfe/INBOX.legal.network.sig-swlink
-mailboxes =fsfe/INBOX.lists
-mailboxes =fsfe/INBOX.lists.debian
-mailboxes =fsfe/INBOX.lists.unhosted
-mailboxes =fsfe/INBOX.mod
-mailboxes =fsfe/INBOX.reports
-mailboxes =fsfe/INBOX.tosdr
-mailboxes =fsfe/INBOX.tosdr.group
-mailboxes =fsfe/INBOX.trad
-mailboxes =fsfe/INBOX.web
+source ~/.mutt/mailboxes
 
 
 # colours
