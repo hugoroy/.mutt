@@ -2,17 +2,20 @@ color status black yellow
 
 unmy_hdr * # remove all extra headers first.
 my_hdr From: Hugo Roy <hugo@tosdr.org>
+
 set from = "hugo@tosdr.org"
 set sendmail = "/usr/bin/msmtp -a fsfe"
 set mbox = "+fsfe/INBOX.Archives.tosdr"
-set record = +fsfe/INBOX.tosdr.Envoy&AOk-s
-set postponed = "+fsfe/INBOX.tosdr.Brouillons"
+set record = "+fsfe/INBOX.Envoy&AOk-s"
+set postponed = "+fsfe/INBOX.Brouillons"
 set signature = "~/.mutt/tosdr.signature" # my signature file
 set editor = "vim -c 'set filetype=mkd' -c 'set spell spl=en_gb'"
+set locale=en_GB.UTF-8
 
 save-hook "~C hugo@tosdr.org" =fsfe/INBOX.Archives.tosdr
 save-hook "~C team@tosdr.org" =fsfe/INBOX.Archives.tosdr
 save-hook "~C tosdr@googlegroups.com" =fsfe/INBOX.Archives.tosdr.group
+save-hook "~C cgu-pas-lu@googlegroups.com" =fsfe/INBOX.Archives
 
 fcc-hook "~f hugo@tosdr.org" =fsfe/INBOX.tosdr
 fcc-hook "~C team@tosdr.org" =fsfe/INBOX.tosdr
