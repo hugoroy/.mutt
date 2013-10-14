@@ -13,4 +13,5 @@ set signature = "~/.mutt/perso.signature" # my signature file
 set editor="vim -c 'set filetype=mkd' -c 'set spl=fr spell'"
 set locale=fr_FR.UTF-8
 
-macro index za   "<shell-escape>/usr/bin/offlineimap -a totosh -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+save-hook . =perso/Archives
+

@@ -49,7 +49,8 @@ fcc-save-hook "~C hub@icg.greens-efa.eu"                =fsfe/INBOX.Archives.lis
 fcc-save-hook "~C okfn-fr@lists.okfn.org"               =fsfe/INBOX.Archives.lists
 fcc-save-hook "~C netneutrality@laquadrature.net"       =fsfe/INBOX.Archives.lists
 fcc-save-hook "~C public-restrictedmedia@w3.org"        =fsfe/INBOX.Archives.lists
+fcc-save-hook "~C @tosdr.org" =fsfe/INBOX.tosdr
 
-subscribe team@tosdr.org team@fsfeurope.org ga@fsfeurope.org legal@fsfeurope.org discutons@fsfeurope.org legal@fsfeurope.org ftf-team@fsfeurope.org ftf-legal@fsfeurope.org discussion@fsfeurope.org paris@lists.fsfe.org france@fsfeurope.org coordinators@lists.fsfe.org consensus@gnu.org unhosted@googlegroups.com discussion@laquadrature.net juridique@laquadrature.net ateliers@manufacture-des-savoirs.net atelier@april.org juridique@april.org membres@chtinux.org annonces@chtinux.org hub@icg.greens-efa.eu okfn-fr@lists.okfn.org netneutrality@laquadrature.net public-restrictedmedia@w3.org
+subscribe team@tosdr.org team@fsfeurope.org ga@fsfeurope.org legal@fsfeurope.org discutons@fsfeurope.org legal@fsfeurope.org ftf-team@fsfeurope.org ftf-legal@fsfeurope.org discussion@fsfeurope.org paris@lists.fsfe.org france@fsfeurope.org coordinators@lists.fsfe.org consensus@gnu.org unhosted@googlegroups.com discussion@laquadrature.net juridique@laquadrature.net ateliers@manufacture-des-savoirs.net atelier@april.org juridique@april.org membres@chtinux.org annonces@chtinux.org hub@icg.greens-efa.eu okfn-fr@lists.okfn.org netneutrality@laquadrature.net public-restrictedmedia@w3.org team@todsr.org
 
 macro index za   "<shell-escape>/usr/bin/offlineimap -a fsfe -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
