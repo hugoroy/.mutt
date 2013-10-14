@@ -13,17 +13,13 @@ set signature = "~/.mutt/perso.signature" # my signature file
 set editor="vim -c 'set filetype=mkd' -c 'set spl=fr spell'"
 set locale=fr_FR.UTF-8
 
+save-hook . =perso/Archives
+
 fcc-hook "~f hugo@hugoroy.eu" =perso/INBOX
 save-hook "~f hugo@hugoroy.eu" =perso/Envoy&AOk-s
-save-hook "~C hugo@hugoroy.eu" =perso/Archives
 save-hook "~C hugo.roy@sciences-po.org" =Archives/perso.sciencespo
 save-hook "~C @sciences-po.fr" =Archives/perso.sciencespo
-save-hook "~C -stobor@ampoliros.net" =perso/Archives
-save-hook "~C hugo+*@devred.fm" =perso/Archives
-fcc-save-hook "~C @fdn.fr" =perso/Archives
 fcc-save-hook "~C @parisdescartes.fr" =Archives/perso.iej
 fcc-save-hook "~f @parisdescartes.fr" =Archives/perso.iej
-
-subscribe cgu-pas-lu@googlegroups.com 
 
 macro index za   "<shell-escape>/usr/bin/offlineimap -a perso -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
