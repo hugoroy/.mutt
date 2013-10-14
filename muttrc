@@ -1,6 +1,8 @@
 # options principales
 set folder=~/Mail # où chercher les emails en local
 set spoolfile=~/Mail/perso/INBOX # quel dossier afficher par défaut
+set record=~/Mail/sent
+set postponed=~/Mail/draft
 set mbox_type=Maildir
 set timeout=1800
 unset mark_old # retire le mode "old" pour ne garder que lu/nonlu
@@ -19,7 +21,7 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 #options pager
 set pager_index_lines=6 # affiche le nombre de sujets en haut en mode pager
-set pager_context=3      # no. of lines of context to give when scrolling
+set pager_context=1      # no. of lines of context to give when scrolling
 set menu_scroll
 set smart_wrap
 set tilde
@@ -84,6 +86,7 @@ source ~/.mutt/alias/fsfe-gpg-aliases
 
 # account specific sources
 folder-hook perso/* source ~/.mutt/perso.muttrc
+folder-hook totosh/* source ~/.mutt/totosh.muttrc
 folder-hook fsfe/* source ~/.mutt/fsfe.muttrc
 send-hook "~f @fsfe*" source ~/.mutt/fsfe.muttrc
 send-hook "~C @fsfe*" source ~/.mutt/fsfe.muttrc
