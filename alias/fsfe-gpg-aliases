@@ -1,0 +1,12 @@
+# Mutt alias file for encrypted (-e) messages
+
+
+alias presidente gerloff@fsfeurope.org, sandklef@fsfeurope.org
+
+alias councile gerloff@fsfeurope.org, sandklef@fsfeurope.org, mueller@fsfeurope.org, kirschner@fsfeurope.org
+
+alias eece gerloff@fsfeurope.org, sandklef@fsfeurope.org, mueller@fsfeurope.org, kirschner@fsfeurope.org
+
+alias gae archive@fsfeurope.org, coughlan@fsfeurope.org, gerloff@fsfeurope.org, gollowitzer@fsfeurope.org, greve@fsfeurope.org, grote@fsfeurope.org, kirschner@fsfeurope.org, wk@gnupg.org, machon@fsfeurope.org, anna.morris@fsfe.org, mueller@fsfeurope.org, oberg@fsfeurope.org, ohnewein@fsfeurope.org, ojasild@fsfeurope.org, poderi@fsfeurope.org, reiter@fsfeurope.org, comzeradd@fsfe.org, roy@fsfeurope.org, sandklef@fsfeurope.org, fernanda@softwarelivre.org
+
+alias teame archive@fsfeurope.org, eal@fsfe.org, arnold@fsfeurope.org, leopold.baillard@fsfeurope.org, eszter@fsfe.org, bubestinger@fsfeurope.org, coughlan@fsfeurope.org, gerloff@fsfeurope.org, gollowitzer@fsfeurope.org, greve@fsfeurope.org, grote@fsfeurope.org, sh@office.fsfeurope.org, jean@fsfeurope.org, jensch@fsfeurope.org, otto.kekalainen@fsfeurope.org, kersten@fsfeurope.org, kirschner@fsfeurope.org, kneissl@fsfeurope.org, wk@gnupg.org, machon@fsfeurope.org, anna.morris@fsfe.org, mueller@fsfeurope.org, oberg@fsfeurope.org, ohnewein@fsfeurope.org, ojasild@fsfeurope.org, alessandro.polvani@fsfeurope.org, reiter@fsfeurope.org, rejas@fsfeurope.org, rigamonti@fsfeurope.org, comzeradd@fsfe.org, roy@fsfeurope.org, sandklef@fsfeurope.org, schiessle@fsfeurope.org, suklje@fsfeurope.org, samtuke@fsfe.org, fernanda@softwarelivre.org, willard@fsfeurope.org 
