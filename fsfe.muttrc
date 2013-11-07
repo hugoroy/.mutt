@@ -18,38 +18,7 @@ set locale=en_GB.UTF-8
 save-hook . =fsfe/INBOX.Archives
 
 fcc-hook "~f hugo@fsfe.org"     =fsfe/INBOX
-save-hook "~C hugo@tosdr.org"     =fsfe/INBOX.tosdr
-save-hook "~C team@tosdr.org"     =fsfe/INBOX.tosdr
-
-fcc-save-hook "~C team@fsfeurope.org"                   =fsfe/INBOX.Archives.exe
-fcc-save-hook "~C ga@fsfeurope.org"                     =fsfe/INBOX.Archives.exe
-fcc-save-hook "~C <legal@fsfeurope.org>"                =fsfe/INBOX.Archives.legal
-fcc-save-hook "~C ftf-team@fsfeurope.org"               =fsfe/INBOX.Archives.legal
-fcc-save-hook "~C ftf-legal@fsfeurope.org"              =fsfe/INBOX.Archives.legal.network
-fcc-save-hook "~C france@fsfeurope.org"                 =fsfe/INBOX.Archives.exe
-fcc-save-hook "~C -owner@fsfeurope.org"                 =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C -owner@lists.fsfe.org"                =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C paris@lists.fsfe.org"                 =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C discussion@fsfeurope.org"             =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C discutons@fsfeurope.org"              =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C coordinators@lists.fsfe.org"          =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C consensus@gnu.org"                    =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C unhosted@googlegroups.com"            =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C opennotice@googlegroups.com"          =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C discussion@laquadrature.net"          =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C juridique@laquadrature.net"           =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C ateliers@manufacture-des-savoirs.net" =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C atelier@april.org"                    =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C juridique@april.org"                  =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C all-april@april.org"                  =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C liste-infos@april.org"                =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C membres@chtinux.org"                  =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C annonces@chtinux.org"                 =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C hub@icg.greens-efa.eu"                =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C okfn-fr@lists.okfn.org"               =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C netneutrality@laquadrature.net"       =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C public-restrictedmedia@w3.org"        =fsfe/INBOX.Archives.lists
-fcc-save-hook "~C @tosdr.org" =fsfe/INBOX.tosdr
+save-hook "~C team@tosdr.org"       =fsfe/INBOX.tosdr
 
 subscribe team@tosdr.org team@fsfeurope.org ga@fsfeurope.org legal@fsfeurope.org discutons@fsfeurope.org legal@fsfeurope.org ftf-team@fsfeurope.org ftf-legal@fsfeurope.org discussion@fsfeurope.org paris@lists.fsfe.org france@fsfeurope.org coordinators@lists.fsfe.org consensus@gnu.org unhosted@googlegroups.com discussion@laquadrature.net juridique@laquadrature.net ateliers@manufacture-des-savoirs.net atelier@april.org juridique@april.org membres@chtinux.org annonces@chtinux.org hub@icg.greens-efa.eu okfn-fr@lists.okfn.org netneutrality@laquadrature.net public-restrictedmedia@w3.org team@todsr.org
 

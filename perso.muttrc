@@ -5,21 +5,21 @@ my_hdr From: Hugo Roy <hugo@hugoroy.eu>
 
 
 set from = "hugo@hugoroy.eu"
-set sendmail = "/usr/bin/msmtp -a perso"
-set mbox = "+perso/Archives"
-set record = "+perso/Envoy&AOk-s"
-set postponed = "+perso/Brouillons"
+set sendmail = "/usr/bin/msmtp -a ampoliros"
+set mbox = "+ampoliros/Archive"
+set record = "+ampoliros/Sent"
+set postponed = "+ampoliros/Drafts"
 set signature = "~/.mutt/perso.signature" # my signature file
 set editor="vim -c 'set filetype=mkd' -c 'set spl=fr spell'"
 set locale=fr_FR.UTF-8
 
-save-hook . =perso/Archives
+save-hook . =ampoliros/Archive.2013
 
-fcc-hook "~f hugo@hugoroy.eu" =perso/INBOX
-save-hook "~f hugo@hugoroy.eu" =perso/Envoy&AOk-s
+fcc-hook "~f hugo@hugoroy.eu" =ampoliros/INBOX
+save-hook "~f hugo@hugoroy.eu" =ampoliros/Sent
 save-hook "~C hugo.roy@sciences-po.org" =Archives/perso.sciencespo
 save-hook "~C @sciences-po.fr" =Archives/perso.sciencespo
 fcc-save-hook "~C @parisdescartes.fr" =Archives/perso.iej
 fcc-save-hook "~f @parisdescartes.fr" =Archives/perso.iej
 
-macro index za   "<shell-escape>/usr/bin/offlineimap -a perso -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+macro index za   "<shell-escape>/usr/bin/offlineimap -a ampoliros -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

@@ -4,7 +4,7 @@ set spoolfile=~/Mail/fsfe/INBOX.tosdr
 
 unmy_hdr * # remove all extra headers first.
 my_hdr From: Hugo Roy <hugo@tosdr.org>
-my_hdr Organization: Terms of Service; Didn’t Read
+my_hdr Organization: Terms of Service, Didn’t Read
 
 set from = "hugo@tosdr.org"
 set sendmail = "/usr/bin/msmtp -a fsfe"
