@@ -1,6 +1,6 @@
 # options principales
 set folder=~/Mail # où chercher les emails en local
-set spoolfile=~/Mail/perso/INBOX # quel dossier afficher par défaut
+set spoolfile=~/Mail/ampoliros/INBOX # quel dossier afficher par défaut
 set record=~/Mail/sent
 set postponed=~/Mail/draft
 set mbox_type=Maildir
@@ -37,6 +37,7 @@ bind pager <down> next-line
 #macro
 macro index M "T.*\n;" "Mark all messages"
 source ~/.mutt/notmuch.muttrc 
+macro index \eR "|~/.mutt/bin/remember-mail\n" "integrate with org-mode"
 
 #format
 set date_format = "%Y-%m-%d %a %R"
@@ -76,7 +77,7 @@ hdr_order from: to: cc: date: X-Label: subject:
 set header_cache="~/.mutt/cache/headers"
 set message_cachedir="~/.mutt/cache/bodies"
 set tmpdir="~/.mutt/tmp
-set sendmail="/usr/bin/msmtp -a perso" #Envoyer les emails avec msmtp
+set sendmail="/usr/bin/msmtp -a ampoliros" #Envoyer les emails avec msmtp
 set print_command="muttprint"
 
 #sources
@@ -85,8 +86,8 @@ source ~/.mutt/gnupg.muttrc
 source ~/.mutt/alias/fsfe-gpg-aliases
 
 # account specific sources
-folder-hook perso/* source ~/.mutt/perso.muttrc
-folder-hook totosh/* source ~/.mutt/totosh.muttrc
+folder-hook devred/* source ~/.mutt/perso.muttrc
+folder-hook ampoliros/* source ~/.mutt/perso.muttrc
 folder-hook fsfe/* source ~/.mutt/fsfe.muttrc
 send-hook "~f @fsfe*" source ~/.mutt/fsfe.muttrc
 send-hook "~C @fsfe*" source ~/.mutt/fsfe.muttrc
@@ -99,10 +100,17 @@ folder-hook . "push <last-entry><current-middle>"
 mailboxes $MAIL
 source ~/.mutt/mailboxes
 
-#goobook according to https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
-set query_command="goobook query '%s'"
+##goobook according to https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
+#set query_command="goobook query '%s'"
+#bind editor <Tab> complete-query
+#macro index,pager A "<pipe-message>goobook reload && goobook add<return>" "add the sender address to Google contacts"
+
+## http://lostpackets.de/pycarddav/pages/usage.html
+set query_command="pc_query -m '%s'"
 bind editor <Tab> complete-query
-macro index,pager A "<pipe-message>goobook reload && goobook add<return>" "add the sender address to Google contacts"
+##need to enable write support for that:
+#macro index,pager A "<pipe-message>pycard-import<enter>" "add sender address to pycardsyncer"
+macro index,pager A "<pipe-message>pycardsyncer --debug<enter>" "sync only"
 
 # colours
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
