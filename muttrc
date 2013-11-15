@@ -94,6 +94,7 @@ send-hook "~C @fsfe*" source ~/.mutt/fsfe.muttrc
 folder-hook fsfe/INBOX.tosdr* source ~/.mutt/tosdr.muttrc
 send-hook "~f @tosdr.org" source ~/.mutt/tosdr.muttrc
 send-hook "~C @tosdr.org" source ~/.mutt/tosdr.muttrc
+send-hook "~C @gmail.com" source ~/.mutt/to-gmail.muttrc
 folder-hook . "push <last-entry><current-middle>"
 
 #mailboxes

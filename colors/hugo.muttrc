@@ -22,14 +22,14 @@ color header white black "^subject:"
 color header brightblack black "^x-spam-rule:"
 
 # coloring quoted text
-color quoted blue black
-color quoted1 cyan black
-color quoted2 green black
-color quoted3 yellow black
+color quoted  yellow black
+color quoted1 blue black
+color quoted2 cyan black
+color quoted3 green black
 color quoted4 white black
 color quoted5 blue default
 color quoted6 cyan default
-color quoted6 green default
+color quoted7 green default
 
 ## pgp
 
