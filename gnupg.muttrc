@@ -18,14 +18,16 @@ set pgp_sign_as=0xB3D7B795
 
 set pgp_timeout=3600
 
-set pgp_autosign=yes
+## DISABLED UNTIL KEY IMPORTED
+## set pgp_autosign=yes
 
 # mutt uses by default PGP/GPG to sign/encrypt messages
 # if you want to use S-mime instead set the smime_is_default variable to yes
 set smime_is_default=no
 
 # automatically sign all outgoing messages
-set crypt_autosign
+## DISABLED UNTIL KEY IMPORTED
+## set crypt_autosign
 # sign only replies to signed messages
 #set crypt_replysign
 
