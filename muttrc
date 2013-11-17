@@ -83,7 +83,6 @@ set print_command="muttprint"
 #sources
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
-source ~/.mutt/alias/fsfe-gpg-aliases
 
 # account specific sources
 folder-hook devred/* source ~/.mutt/perso.muttrc
