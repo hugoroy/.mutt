@@ -1,4 +1,4 @@
-color status black green
+color status green black
 
 set spoolfile=~/Mail/fsfe/INBOX
 
@@ -22,4 +22,4 @@ save-hook "~C team@tosdr.org"       =fsfe/INBOX.tosdr
 
 subscribe team@tosdr.org team@fsfeurope.org ga@fsfeurope.org legal@fsfeurope.org discutons@fsfeurope.org legal@fsfeurope.org ftf-team@fsfeurope.org ftf-legal@fsfeurope.org discussion@fsfeurope.org paris@lists.fsfe.org france@fsfeurope.org coordinators@lists.fsfe.org consensus@gnu.org unhosted@googlegroups.com discussion@laquadrature.net juridique@laquadrature.net ateliers@manufacture-des-savoirs.net atelier@april.org juridique@april.org membres@chtinux.org annonces@chtinux.org hub@icg.greens-efa.eu okfn-fr@lists.okfn.org netneutrality@laquadrature.net public-restrictedmedia@w3.org team@todsr.org wg-infosharing@kantarainitiative.org
 
-macro index za   "<shell-escape>/usr/bin/offlineimap -a fsfe -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+macro index O  "<shell-escape>/usr/bin/offlineimap -a fsfe -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
