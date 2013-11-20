@@ -27,9 +27,9 @@ color quoted1 blue black
 color quoted2 cyan black
 color quoted3 green black
 color quoted4 white black
-color quoted5 blue default
-color quoted6 cyan default
-color quoted7 green default
+color quoted5 blue black
+color quoted6 cyan black
+color quoted7 green black
 
 ## pgp
 color body          red             black         "(BAD signature)"
