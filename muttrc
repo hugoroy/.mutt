@@ -10,6 +10,8 @@ set copy                 # save copies of sent messages
 set delete # don't ask, just do
 unset confirmappend # don't ask, just do!
 set quit # don't ask, just do!!
+set sleep_time = 0 # be fast
+set wait_key=no
 
 # options index
 set sort=threads # organise par threads
@@ -21,18 +23,28 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 #options pager
 set pager_index_lines=6 # affiche le nombre de sujets en haut en mode pager
-set pager_context=1      # no. of lines of context to give when scrolling
+set pager_context=4      # no. of lines of context to give when scrolling
 set menu_scroll
 set smart_wrap
 set tilde
 unset markers #no ugly plus signs
+set menu_scroll # scroll in menus
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 
 #bindings pager and index
-bind pager <up> previous-line
+bind pager <up> previous-line #scroll inside the message rather than the index
 bind pager <down> next-line
+bind pager G bottom
+bind index gg first-entry
+bind index G last-entry
+bind index <space> collapse-thread
+
+# Status Bar -----------------------------------------
+set status_chars  = " *%A"
+set status_format = "# [ Folder: %f ] ~ [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]   %> %?p?( %p postponed )?  "
+set help=no # remove the top bar
 
 #macro
 macro index M "T.*\n;" "Mark all messages"
@@ -106,11 +118,15 @@ source ~/.mutt/mailboxes
 #macro index,pager A "<pipe-message>goobook reload && goobook add<return>" "add the sender address to Google contacts"
 
 ## http://lostpackets.de/pycarddav/pages/usage.html
-set query_command="pc_query -m '%s'"
-bind editor <Tab> complete-query
-##need to enable write support for that:
-#macro index,pager A "<pipe-message>pycard-import<enter>" "add sender address to pycardsyncer"
-macro index,pager A "<pipe-message>pycardsyncer --debug<enter>" "sync only"
+#set query_command="pc_query -m '%s'"
+#bind editor <Tab> complete-query
+###need to enable write support for that:
+##macro index,pager A "<pipe-message>pycard-import<enter>" "add sender address to pycardsyncer"
+#macro index,pager A "<pipe-message>pycardsyncer --debug<enter>" "sync only"
+
+## nottoomuch-addresses http://blog.tshirtman.fr/tags/nottoomuch + http://www.guru-group.fi/~too/nottoomuch/nottoomuch-addresses/
+set query_command="$HOME/.mutt/ntmw.sh %s"
+set query_format="%t %-25.24n %a %e"
 
 # colours
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
@@ -118,5 +134,4 @@ macro index,pager A "<pipe-message>pycardsyncer --debug<enter>" "sync only"
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 source ~/.mutt/colors/hugo.muttrc
-
-
+#source ~/.mutt/colors/polokai #need to figure ouet 256 colors first
