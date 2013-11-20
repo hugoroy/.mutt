@@ -9,7 +9,7 @@ unset mark_old # retire le mode "old" pour ne garder que lu/nonlu
 set copy                 # save copies of sent messages
 set delete # don't ask, just do
 unset confirmappend # don't ask, just do!
-set quit # don't ask, just do!!
+set quit=ask-yes # ask if i want to quit
 set sleep_time = 0 # be fast
 set wait_key=no
 
@@ -43,7 +43,7 @@ bind index <space> collapse-thread
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
-set status_format = "# [ Folder: %f ] ~ [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]   %> %?p?( %p postponed )?  "
+set status_format = "- [ Folder: %f ] -- [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ] %>- %?p?( %p postponed )?"
 set help=no # remove the top bar
 
 #macro
