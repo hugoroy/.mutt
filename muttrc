@@ -32,6 +32,7 @@ set menu_scroll # scroll in menus
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set display_filter="t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt" #hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
 
 #bindings pager and index
 bind pager <up> previous-line #scroll inside the message rather than the index
