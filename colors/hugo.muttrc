@@ -5,7 +5,7 @@ color attachment green black
 color tree brightblack black
 
 # index
-color index brightyellow black ~N
+color index brightcyan black ~N
 color index yellow black ~O
 color index magenta black ~F
 color index blue black ~T
@@ -18,7 +18,7 @@ color header cyan black "^cc:"
 color header cyan black "^date:"
 color header cyan black "^newsgroups:"
 color header cyan black "^reply-to:"
-color header white black "^subject:"
+color header brightwhite black "^subject:"
 color header brightblack black "^x-spam-rule:"
 
 # coloring quoted text
@@ -32,7 +32,6 @@ color quoted6 cyan default
 color quoted7 green default
 
 ## pgp
-
 color body          red             black         "(BAD signature)"
 color body          cyan            black         "(Good signature)"
 color body          brightblack     black         "^gpg: Good signature .*"
@@ -44,5 +43,6 @@ color body          red    black             "^gpg: MAUVAISE signature.*"
 color body  yellow black "[;:]-[)/(|]"
 color body  yellow black "[;:][)/(|]"
 color body  blue black "[[:alpha:]]\+://[^ ]*"
-color body  yellow black "☺" 
-color body  yellow black "☹"
+color body  yellow black "[☺☹☻😃😉😍😊☹😵😒😋😖]"
+color body  blue black "☕"
+color body  red black "♥"
