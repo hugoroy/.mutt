@@ -40,7 +40,8 @@ color body          red    black             "^gpg: BAD signature from.*"
 color body          red    black             "^gpg: MAUVAISE signature.*"
 
 ## T-prot
-color body  yellow black ".* shrunk by t-prot.*"
+color body  yellow black "^\\[---.*"
+color body  yellow black "^#v[-+]"
 
 #  Colorize smileys:  :-)  ;-)  :-/  :-(
 color body  yellow black "[;:]-[)/(|]"

@@ -38,19 +38,23 @@ set display_filter="t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt" #hides quotes t
 bind pager <up> previous-line #scroll inside the message rather than the index
 bind pager <down> next-line
 bind pager G bottom
+bind pager g group-reply
 bind index gg first-entry
 bind index G last-entry
 bind index <space> collapse-thread
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
-set status_format = "- [ Folder: %f ] -- [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ] %>- %?p?( %p postponed )?"
+set status_format = "- [ Folder: %f ] —  [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ] %>— %?p?( %p postponed )?"
 set help=no # remove the top bar
 
 #macro
 macro index M "T.*\n;" "Mark all messages"
 source ~/.mutt/notmuch.muttrc 
 macro index \eR "|~/.mutt/bin/remember-mail\n" "integrate with org-mode"
+
+macro pager 0 ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
+macro pager 1 ":set display_filter='t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt'; exec exit\n:exec display-message\n" "TOFU protection on" 
 
 #format
 set date_format = "%Y-%m-%d %a %R"

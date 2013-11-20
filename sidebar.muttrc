@@ -1,10 +1,10 @@
 # shamelessly copied from
 # http://www.lunar-linux.org/index.php?option=com_content&task=view&id=44
 
-# set up the sidebar, default not visible
+# set up the sidebar, default visible
 set sidebar_width=24
-set sidebar_visible=no
-set sidebar_delim="  "
+set sidebar_visible=yes
+set sidebar_delim="   "
 set sidebar_shortpath = yes
 
 # color of folders with new mail
