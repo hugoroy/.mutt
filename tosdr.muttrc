@@ -1,4 +1,4 @@
-color status yellow black
+color status brightyellow black
 
 set spoolfile=~/Mail/fsfe/INBOX.tosdr
 

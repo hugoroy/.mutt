@@ -1,4 +1,4 @@
-color status blue black
+color status brightblue black
 
 unmy_hdr * # remove all extra headers first.
 my_hdr From: Hugo Roy <hugo@hugoroy.eu>
@@ -22,4 +22,4 @@ save-hook "~C @sciences-po.fr" =Archives/perso.sciencespo
 fcc-save-hook "~C @parisdescartes.fr" =Archives/perso.iej
 fcc-save-hook "~f @parisdescartes.fr" =Archives/perso.iej
 
-macro index O "<shell-escape>/usr/bin/offlineimap -a ampoliros -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
+macro index,pager O "<shell-escape>/usr/bin/offlineimap -a ampoliros -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
