@@ -28,7 +28,6 @@ set menu_scroll
 set smart_wrap
 set tilde
 unset markers #no ugly plus signs
-set menu_scroll # scroll in menus
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
@@ -110,7 +109,7 @@ send-hook "~C @fsfe*" source ~/.mutt/fsfe.muttrc
 folder-hook fsfe/INBOX.tosdr* source ~/.mutt/tosdr.muttrc
 send-hook "~f @tosdr.org" source ~/.mutt/tosdr.muttrc
 send-hook "~C @tosdr.org" source ~/.mutt/tosdr.muttrc
-send-hook "~C @gmail.com" source ~/.mutt/to-gmail.muttrc
+send-hook "~C @gmail.com ~f hugo@hugoroy.eu" source ~/.mutt/to-gmail.muttrc"
 folder-hook . "push <last-entry><current-middle>"
 
 #mailboxes
