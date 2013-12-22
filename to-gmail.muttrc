@@ -1,6 +1,6 @@
 # This file is an awful hack to use an IPv4 SMTP server in order to get around Gmail's insane restrictions on IPv6!
 
-color status black blue
+color status red black
 
 unmy_hdr * # remove all extra headers first.
 my_hdr From: Hugo Roy <hugo@hugoroy.eu>
