@@ -28,10 +28,13 @@ set menu_scroll
 set smart_wrap
 set tilde
 unset markers #no ugly plus signs
-auto_view text/html
-alternative_order text/plain text/enriched text/html
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set display_filter="t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt" #hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
+
+#displaying html emails
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+set mailcap_path = ~/.mutt/mailcap
 
 #bindings pager and index
 bind pager <up> previous-line #scroll inside the message rather than the index
@@ -44,11 +47,12 @@ bind index <space> collapse-thread
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
-set status_format = "- [ Folder: %f ] —  [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ] %>— %?p?( %p postponed )?"
+set status_format = "- [ Folder: %f ] —  [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ] %>—— %?p?( %p postponed )?"
 set help=no # remove the top bar
 
 #macro
 macro index M "T.*\n;" "Mark all messages"
+macro index S "N\ns" "Mark as read and archive"
 source ~/.mutt/notmuch.muttrc 
 macro index \eR "|~/.mutt/bin/remember-mail\n" "integrate with org-mode"
 
@@ -68,7 +72,7 @@ set realname="Hugo Roy"
 set from="hugo@hugoroy.eu"
 #set alternates="hugo@ampoliros.net|hugo@devred.fm|hugo+*@devred.fm|hugo@fsfe.org|roy@fsfeurope.org|hugo@tosdr.org"
 set envelope_from
-set sig_dashes
+set sig_dashes=no
 set fast_reply
 set askcc=no
 set fcc_attach
@@ -86,19 +90,21 @@ set rfc2047_parameters=yes
 
 #headers
 ignore *
-unignore from: to: cc: date: subject: X-Label:
-hdr_order from: to: cc: date: X-Label: subject: 
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order Date From: To Cc Bcc X-Label: Message-ID: Subject
 
 #directories and commands
 set header_cache="~/.mutt/cache/headers"
 set message_cachedir="~/.mutt/cache/bodies"
 set tmpdir="~/.mutt/tmp
-set sendmail="/usr/bin/msmtp -a ampoliros" #Envoyer les emails avec msmtp
+set sendmail="/usr/bin/msmtp" #Envoyer les emails avec msmtp
 set print_command="muttprint"
 
 #sources
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
+source ~/.svn/fsfe-internal/Howto/GPG/mutt-gpg-aliases
 
 # account specific sources
 folder-hook devred/* source ~/.mutt/perso.muttrc
