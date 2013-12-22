@@ -31,13 +31,17 @@ color quoted5 blue black
 color quoted6 cyan black
 color quoted7 green black
 
+# coloring signatures
+color signature cyan black
+color body cyan black "^-- .*"
+
 ## pgp
-color body          red             black         "(BAD signature)"
-color body          cyan            black         "(Good signature)"
-color body          brightblack     black         "^gpg: Good signature .*"
-color body          green    black         "^gpg: Bonne signature.* "
-color body          red    black             "^gpg: BAD signature from.*"
-color body          red    black             "^gpg: MAUVAISE signature.*"
+color body   red    black         "(BAD signature)"
+color body   cyan   black         "(Good signature)"
+color body   brightblack black    "^gpg: Good signature .*"
+color body   green  black         "^gpg: Bonne signature.* "
+color body   red    black         "^gpg: BAD signature from.*"
+color body   red    black         "^gpg: MAUVAISE signature.*"
 
 ## T-prot
 color body  yellow black "^\\[---.*"
@@ -50,3 +54,6 @@ color body  blue black "[[:alpha:]]\+://[^ ]*"
 color body  yellow black "[☺☹☻😃😉😍😊☹😵😒😋😖]"
 color body  blue black "☕"
 color body  red black "♥"
+
+color body  brightred black "TODO"
+color body  cyan black "Hugo"
