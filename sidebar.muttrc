@@ -2,13 +2,15 @@
 # http://www.lunar-linux.org/index.php?option=com_content&task=view&id=44
 
 # set up the sidebar, default visible
-set sidebar_width=24
+set sidebar_width=38
 set sidebar_visible=yes
-set sidebar_delim="   "
+set sidebar_delim="          "
+set sidebar_sort = yes
 set sidebar_shortpath = yes
+set sidebar_folderindent = yes
 
 # color of folders with new mail
-color sidebar_new yellow black
+color sidebar_new cyan black
 
 # ctrl-n, ctrl-p to select next, prev folder
 # ctrl-o to open selected folder
