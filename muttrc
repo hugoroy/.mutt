@@ -52,7 +52,7 @@ set help=no # remove the top bar
 
 #macro
 macro index M "T.*\n;" "Mark all messages"
-macro index S "t;N;s\n" "Mark as read and archive"
+macro index S "t;N;s" "Mark as read and archive"
 source ~/.mutt/notmuch.muttrc 
 macro index \eR "|~/.mutt/bin/remember-mail\n" "integrate with org-mode"
 
