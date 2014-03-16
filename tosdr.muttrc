@@ -12,7 +12,7 @@ set mbox = "+fsfe/INBOX.Archives.tosdr"
 set record = "+fsfe/INBOX.Envoy&AOk-s"
 set postponed = "+fsfe/INBOX.Brouillons"
 set signature = "~/.mutt/tosdr.signature" # my signature file
-set editor = "vim -c 'set filetype=mkd' -c 'set spell spl=en_gb'"
+set editor = "vim -c 'set filetype=mkd'" # -c 'set spell spl=en_gb'"
 set locale=en_GB.UTF-8
 
 save-hook . =fsfe/INBOX.Archives.tosdr
