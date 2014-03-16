@@ -1,8 +1,6 @@
 # options principales
 set folder=~/Mail # où chercher les emails en local
 set spoolfile=~/Mail/ampoliros/INBOX # quel dossier afficher par défaut
-set record=~/Mail/sent
-set postponed=~/Mail/draft
 set mbox_type=Maildir
 set timeout=1800
 unset mark_old # retire le mode "old" pour ne garder que lu/nonlu
@@ -22,14 +20,13 @@ set sort_re # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 #options pager
-set pager_index_lines=6 # affiche le nombre de sujets en haut en mode pager
+set pager_index_lines=9 # affiche le nombre de sujets en haut en mode pager
 set pager_context=4      # no. of lines of context to give when scrolling
 set menu_scroll
 set smart_wrap
-set tilde
 unset markers #no ugly plus signs
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-set display_filter="t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt" #hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
+set display_filter="t-prot -cemt --bigq  --pgp-move -S 8 -M mutt" #hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
 
 #displaying html emails
 auto_view text/html
@@ -41,6 +38,7 @@ bind pager <up> previous-line #scroll inside the message rather than the index
 bind pager <down> next-line
 bind pager G bottom
 bind pager g group-reply
+bind pager <esc> exit
 bind index gg first-entry
 bind index G last-entry
 bind index <space> collapse-thread
@@ -54,7 +52,7 @@ set help=no # remove the top bar
 macro index M "T.*\n;" "Mark all messages"
 macro index S "t;N;s" "Mark as read and archive"
 source ~/.mutt/notmuch.muttrc 
-macro index \eR "|~/.mutt/bin/remember-mail\n" "integrate with org-mode"
+macro index \er "|~/.email/org-mutt/remember-mail\n" "integrate with org-mode"
 
 macro pager 0 ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
 macro pager 1 ":set display_filter='t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt'; exec exit\n:exec display-message\n" "TOFU protection on" 
@@ -104,9 +102,11 @@ set print_command="muttprint"
 #sources
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
-source ~/.svn/fsfe-internal/Howto/GPG/mutt-gpg-aliases
+source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases
+source ~/.mutt/alias.muttrc
 
 # account specific sources
+source ~/.mutt/perso.muttrc
 folder-hook devred/* source ~/.mutt/perso.muttrc
 folder-hook ampoliros/* source ~/.mutt/perso.muttrc
 folder-hook fsfe/* source ~/.mutt/fsfe.muttrc
@@ -115,7 +115,7 @@ send-hook "~C @fsfe*" source ~/.mutt/fsfe.muttrc
 folder-hook fsfe/INBOX.tosdr* source ~/.mutt/tosdr.muttrc
 send-hook "~f @tosdr.org" source ~/.mutt/tosdr.muttrc
 send-hook "~C @tosdr.org" source ~/.mutt/tosdr.muttrc
-send-hook "~C @gmail.com ~f hugo@hugoroy.eu" source ~/.mutt/to-gmail.muttrc"
+#send-hook "~C @gmail.com ~f hugo@hugoroy.eu" source ~/.mutt/to-gmail.muttrc"
 folder-hook . "push <last-entry><current-middle>"
 
 #mailboxes
