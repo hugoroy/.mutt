@@ -18,6 +18,7 @@ color header cyan black "^cc:"
 color header cyan black "^date:"
 color header cyan black "^newsgroups:"
 color header cyan black "^reply-to:"
+color header cyan black "^message-id:"
 color header brightwhite black "^subject:"
 color header brightblack black "^x-spam-rule:"
 
