@@ -1,0 +1,25 @@
+# vim: filetype=muttrc
+# colors
+color normal	default default
+color hdrdefault cyan default
+color indicator color250 color237
+color markers	brightred default
+color quoted	green default
+color signature cyan default
+color status	brightwhite black
+color tilde	blue default
+color tree	brightwhite default
+color header	brightgreen default ^From:
+color header	brightcyan default ^To:
+color header	brightcyan default ^Reply-To:
+color header	brightcyan default ^Cc:
+color header	brightblue default ^Subject:
+color body	brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body	brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+color index white default ~A
+color index color214 default "~N"
+color index color154 default '~N ~h X-Bugzilla-Changed-Fields:[\ ].*Status.*'
+color index color240 default "~D"
+color index color197 default ~F
+color index color50 default '~T'
