@@ -101,6 +101,7 @@ set print_command="muttprint"
 
 #sources
 source ~/.mutt/kz.muttrc
+source ~/.mutt/virtual-mboxes.muttrc
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
 source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases

@@ -2,8 +2,6 @@ set nm_default_uri = "notmuch:///home/hrd/Mail"
 set nm_open_timeout = 0
 set virtual_spoolfile=yes                          # enable virtual folders
 
-source virtual-mboxes.muttrc
-
 tag-transforms  "inbox"   "☕"   \
                 "unread"  "✉"   \
                 "replied" "↪"  \
