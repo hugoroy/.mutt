@@ -4,12 +4,20 @@
 # set up the sidebar, default visible
 set sidebar_width=38
 set sidebar_visible=yes
+## works with mutt-sidebar but not with mutt-kz!
+#set sidebar_sort = yes
+#set sidebar_shortpath = yes
+#set sidebar_folderindent = yes
+#
+#mutt-kz:
+set sort_sidebar = unsorted
 set sidebar_delim="           "
-set sidebar_sort = yes
-set sidebar_shortpath = yes
-set sidebar_folderindent = yes
+bind index \CY sidebar-toggle
+
+
 
 # color of folders with new mail
+color sidebar black black
 color sidebar_new cyan black
 
 # ctrl-n, ctrl-p to select next, prev folder

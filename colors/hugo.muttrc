@@ -21,6 +21,7 @@ color header cyan black "^reply-to:"
 color header cyan black "^message-id:"
 color header brightwhite black "^subject:"
 color header brightblack black "^x-spam-rule:"
+color header brightblack black "^tags:"
 
 # coloring quoted text
 color quoted  yellow black
@@ -35,6 +36,13 @@ color quoted7 green black
 # coloring signatures
 color signature cyan black
 color body cyan black "^-- .*"
+
+## markdown
+
+#color body  brightwhite    black   "\\*.*\*"       #emphasized text
+color body  brightblue     black   "^\\# .*"        #section title
+
+color body  cyan           black   "^[↪\+] .*"      #quote header
 
 ## pgp
 color body   red    black         "(BAD signature)"

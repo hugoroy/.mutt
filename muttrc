@@ -59,7 +59,7 @@ macro pager 1 ":set display_filter='t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt'
 
 #format
 set date_format = "%Y-%m-%d %a %R"
-set index_format = "%4C %S %D  %-20.20F %?y?[%.20Y] ?%s %> %4c"
+set index_format = "%S   %D   %-20.20F %?y?[%.20Y] ?%s %> %4c"
 #set index_format = "%4C %Z %{%b %d} %-15.15L (%4c) %s"
 ##
 set folder_format="%2C %t %N %f %> %4s %d"
@@ -80,7 +80,7 @@ set forward_format = "[Fwd] %s" # format for subject when forwarding
 set forward_decode # decode when forwarding
 set mime_forward=yes
 set mime_forward_rest=yes
-set attribution="+ %D, %n <%a>:\n"
+set attribution="↪ %D, %n <%a>:" #add a line with \n at the end
 set reverse_name #reply as whomever it was to
 set include
 set forward_quote
@@ -100,6 +100,7 @@ set sendmail="/usr/bin/msmtp" #Envoyer les emails avec msmtp
 set print_command="muttprint"
 
 #sources
+source ~/.mutt/kz.muttrc
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
 source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases
