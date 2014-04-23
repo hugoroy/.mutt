@@ -1,69 +1,81 @@
-## Email addresses.                                      
-color body  blue black  "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
-color attachment green black
-color tree brightblack black
+color normal default default
+color attachment green default
+color tree brightblack default
+color status brightcyan default
+#color indicator black brightcyan "^N"
+mono indicator reverse
+mono bold bold
 
 # index
-color index brightcyan black ~N
-color index yellow black ~O
-color index magenta black ~F
+color index brightcyan default ~N
+color index yellow default ~O
+color index magenta default ~F
 color index blue black ~T
-color index red black ~D
+color index red default ~D
+#color index blue default ~Gs
+
+#sidebar
+color sidebar black default
+color sidebar_new cyan default
 
 ## Header                       
-color header cyan black "^from:"
-color header cyan black "^to:"
-color header cyan black "^cc:"
-color header cyan black "^date:"
-color header cyan black "^newsgroups:"
-color header cyan black "^reply-to:"
-color header cyan black "^message-id:"
-color header brightwhite black "^subject:"
-color header brightblack black "^x-spam-rule:"
-color header brightblack black "^tags:"
+color hdrdefault cyan default
+color header cyan default "^from:"
+color header cyan default "^to:"
+color header cyan default "^cc:"
+color header cyan default "^date:"
+color header cyan default "^newsgroups:"
+color header cyan default "^reply-to:"
+color header cyan default "^message-id:"
+color header brightdefault default "^subject:"
+color header brightblack default "^x-spam-rule:"
+color header brightblack default "^tags:"
 
 # coloring quoted text
-color quoted  yellow black
-color quoted1 blue black
-color quoted2 cyan black
-color quoted3 green black
-color quoted4 white black
-color quoted5 blue black
-color quoted6 cyan black
-color quoted7 green black
+color quoted  yellow default
+color quoted1 blue default
+color quoted2 cyan default
+color quoted3 green default
+color quoted4 white default
+color quoted5 blue default
+color quoted6 cyan default
+color quoted7 green default
 
 # coloring signatures
-color signature cyan black
-color body cyan black "^-- .*"
+color signature cyan default
+color body cyan default "^-- .*"
+
+## Email addresses.                                      
+color body  blue default  "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
 ## markdown
 
 #color body  brightwhite    black   "\\*.*\*"       #emphasized text
-color body  brightblue     black   "^\\# .*"        #section title
+color body  brightblue     default   "^\\# .*"        #section title
 
-color body  cyan           black   "^[↪\+] .*"      #quote header
+color body  cyan           default   "^[↪\+] .*"      #quote header
 
 ## pgp
-color body   red    black         "(BAD signature)"
-color body   cyan   black         "(Good signature)"
-color body   brightblack black    "^gpg: Good signature .*"
-color body   green  black         "^gpg: Bonne signature.* "
-color body   red    black         "^gpg: BAD signature from.*"
-color body   red    black         "^gpg: MAUVAISE signature.*"
+color body   red    default         "(BAD signature)"
+color body   cyan   default         "(Good signature)"
+color body   brightblack default    "^gpg: Good signature .*"
+color body   brightblack  default         "^gpg: Bonne signature.* "
+color body   red    default         "^gpg: BAD signature from.*"
+color body   red    default         "^gpg: MAUVAISE signature.*"
 
 ## T-prot
-color body  yellow black "^\\[---.*"
-color body  yellow black "^#v[-+]"
+color body  yellow default "^\\[---.*"
+color body  yellow default "^#v[-+]"
 
 #  Colorize smileys:  :-)  ;-)  :-/  :-(
-color body  yellow black "[;:]-[)/(|]"
-color body  yellow black "[;:][)/(|]"
-color body  blue black "[[:alpha:]]\+://[^ ]*"
-color body  yellow black "[☺☹☻😃😉😍😊☹😵😒😋😖]"
-color body  blue black "☕"
-color body  red black "♥"
+color body  yellow default "[;:]-[)/(|]"
+color body  yellow default "[;:][)/(|]"
+color body  blue default "[[:alpha:]]\+://[^ ]*"
+color body  yellow default "[☺☹☻😃😉😍😊☹😵😒😋😖]"
+color body  blue default "☕"
+color body  red default "♥"
 
-color body  brightred black "TODO"
-color body  cyan black "Hugo"
-color body  cyan black "Roy"
+color body  brightred default "TODO"
+color body  cyan default "Hugo"
+color body  cyan default "Roy"

@@ -17,8 +17,8 @@ bind index \CY sidebar-toggle
 
 
 # color of folders with new mail
-color sidebar black black
-color sidebar_new cyan black
+#color sidebar black black
+#color sidebar_new cyan black
 
 # ctrl-n, ctrl-p to select next, prev folder
 # ctrl-o to open selected folder

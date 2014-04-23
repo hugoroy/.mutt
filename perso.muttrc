@@ -15,8 +15,7 @@ set locale=fr_FR.UTF-8
 
 save-hook . =ampoliros/Archive.2014
 
-fcc-hook "~f hugo@hugoroy.eu" =ampoliros/INBOX
-save-hook "~f hugo@hugoroy.eu" =ampoliros/Sent
+fcc-save-hook "~f hugo@hugoroy.eu" =ampoliros/Sent
 save-hook "~C hugo.roy@sciences-po.org" =Archives/perso.sciencespo
 save-hook "~C @sciences-po.fr" =Archives/perso.sciencespo
 fcc-save-hook "~C @parisdescartes.fr" =Archives/perso.iej

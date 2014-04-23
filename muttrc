@@ -26,7 +26,7 @@ set menu_scroll
 set smart_wrap
 unset markers #no ugly plus signs
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-set display_filter="t-prot -cemt --bigq  --pgp-move -S 8 -M mutt" #hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
+set display_filter="t-prot -cemt --bigq  -S 8 -M mutt --pgp-move " #hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
 
 #displaying html emails
 auto_view text/html
@@ -50,8 +50,7 @@ set help=no # remove the top bar
 
 #macro
 macro index M "T.*\n;" "Mark all messages"
-macro index S "t;N;s" "Mark as read and archive"
-source ~/.mutt/notmuch.muttrc 
+#macro index S "t;N;s" "Mark as read and archive"
 macro index \er "|~/.email/org-mutt/remember-mail\n" "integrate with org-mode"
 
 macro pager 0 ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
@@ -100,8 +99,9 @@ set sendmail="/usr/bin/msmtp" #Envoyer les emails avec msmtp
 set print_command="muttprint"
 
 #sources
+#source ~/.mutt/notmuch.muttrc 
 source ~/.mutt/kz.muttrc
-source ~/.mutt/virtual-mboxes.muttrc
+#source ~/.mutt/virtual-mboxes.muttrc
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
 source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases
@@ -122,7 +122,7 @@ folder-hook . "push <last-entry><current-middle>"
 
 #mailboxes
 mailboxes $MAIL
-source ~/.mutt/mailboxes
+source ~/.email/mailboxes
 
 ##goobook according to https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
 #set query_command="goobook query '%s'"
