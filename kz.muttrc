@@ -4,6 +4,24 @@ set virtual_spoolfile=yes                           # enable virtual folders
 set nm_record = yes                                 # apply notmuch to email in mutt's record
 set nm_record_tags = "me"                           # add tags to mutt's record
 
+# notmuch bindings
+#macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
+macro index,pager X "t;<modify-labels-then-hide>-inbox -unread +junk\n;s=Junk\n" "tag as Junk mail and move it"
+macro index,pager + "<modify-labels>+*\n<sync-mailbox>" "tag as starred"
+macro index,pager - "<modify-labels>-*\n<sync-mailbox>"  "tag as unstarred"
+macro index $ "<sync-mailbox>! notmuch new\n"
+macro index,pager <F8> "<vfolder-from-query>" "Search query"
+macro index,pager <F9> "<entire-thread>" "Reconstruct the entire thread"
+macro index S "t;N<modify-labels>-unread\n<sync-mailbox>;s" "Mark as read and archive"
+
+#
+# The big difference between mutt-kz and mutt is to organse yourself with
+# notmuch tags instead of simply relying on maildir folders. This allows for
+# more complex mailboxes. But this only works well if you tell notmuch how to
+# apply tags to new mail. Have a look at
+# <http://notmuchmail.org/initial_tagging/> and especially about post-new
+# hooks: `man notmuch-hooks`
+#
 
 virtual-mailboxes " New!" "notmuch://?query=(tag:unread OR date:yesterday..today) NOT (tag:archive OR tag:tosdrgroup OR tag:ignore)" \
                 " Perso"  "notmuch://?query=folder:ampoliros/INBOX AND (tag:inbox AND tag:perso) NOT tag:archive" \
@@ -63,13 +81,3 @@ set index_format="%?GS?%GS& ?%?Gs?%Gs& ?%?GR?%GR& ? %D  %-20.20F %?M?(%3M)&     
 set status_format = "Folder: %f   %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)?  %> %?p?( %p postponed )?"
 set pager_format = "                                      -%Z- %C/%m: %-20.20n   %s%*  -- %?g?(%g)? - (%P)" # All the space corresponds to the sidebar
 
-
-# notmuch bindings
-#macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
-macro index,pager X "t;<modify-labels-then-hide>-inbox -unread +junk\n;s=Junk\n" "tag as Junk mail and move it"
-macro index,pager + "<modify-labels>+*\n<sync-mailbox>" "tag as starred"
-macro index,pager - "<modify-labels>-*\n<sync-mailbox>"  "tag as unstarred"
-macro index $ "<sync-mailbox>! notmuch new\n"
-macro index,pager <F8> "<vfolder-from-query>" "Search query"
-macro index,pager <F9> "<entire-thread>" "Reconstruct the entire thread"
-macro index S "t;N<modify-labels>-unread\n<sync-mailbox>;s" "Mark as read and archive"
