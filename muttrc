@@ -1,102 +1,96 @@
-# options principales
-set folder=~/Mail # où chercher les emails en local
-set spoolfile=~/Mail/ampoliros/INBOX # quel dossier afficher par défaut
+# Where’s the mail? ------------------------------
+set folder=~/Mail  # où chercher les emails en local
+set spoolfile=~/Mail/ampoliros/INBOX  # quel dossier afficher par défaut
 set mbox_type=Maildir
+
+## Mailboxes
+mailboxes $MAIL
+source ~/.email/mailboxes  # generated with offlineimap
+
+# Who am I? --------------------------------------
+set realname="Hugo Roy"
+set from="hugo@hugoroy.eu"
+#set alternates="hugo@ampoliros.net|hugo@devred.fm|hugo+*@devred.fm|hugo@fsfe.org|roy@fsfeurope.org|hugo@tosdr.org"
+
+# Main options -----------------------------------
+set locale=fr_FR.UTF-8
 set timeout=1800
-unset mark_old # retire le mode "old" pour ne garder que lu/nonlu
-set copy                 # save copies of sent messages
-set delete # don't ask, just do
-unset confirmappend # don't ask, just do!
+set sleep_time = 0  # be fast
+set copy  # save copies of sent messages
+set delete  # don't ask, just do
+unset confirmappend  # don't ask, just do!
 set quit=ask-yes # ask if i want to quit
-set sleep_time = 0 # be fast
 set wait_key=no
+unset mark_old  # retire le mode "old" pour ne garder que lu/nonlu
+set help=no  # remove the help top bar
 
-# options index
-set sort=threads # organise par threads
-set sort_aux=last-date-received # les derniers emails reçus en bas, permet de bouger les threads également
-# unset collapse_unread # don't collapse threads with unread mails
-set uncollapse_jump # don't collapse on an unread message
-set sort_re # thread based on regex
+## Directories and commands
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/bodies"
+set tmpdir="~/.mutt/tmp
+set sendmail="/usr/local/bin/msmtpq" # Envoyer les emails avec msmtpq (msmtp queue)
+set sendmail_wait = -1 #send in the background
+set print_command="muttprint"
+
+# Regexps ----------------------------------------
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 
-#options pager
-set pager_index_lines=9 # affiche le nombre de sujets en haut en mode pager
+# Index ------------------------------------------
+set sort=threads  # organise par threads
+set sort_aux=last-date-received  # les derniers emails reçus en bas, permet de bouger les threads également
+# unset collapse_unread  # don't collapse threads with unread mails
+set sort_re  # thread based on regex
+set uncollapse_jump  # don't collapse on an unread message
+set index_format = "%S   %D   %-20.20F %?y?[%.20Y] ?%s %> %4c"
+#set index_format = "%4C %Z %{%b %d} %-15.15L (%4c) %s"
+
+# Pager ------------------------------------------
+set pager_index_lines=9  # affiche le nombre de sujets en haut en mode pager
 set pager_context=4      # no. of lines of context to give when scrolling
 set menu_scroll
 set smart_wrap
-unset markers #no ugly plus signs
-set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-set display_filter="t-prot -cemt --bigq  -S 8 -M mutt --pgp-move " #hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
+unset markers  # no ugly plus signs
+set display_filter="t-prot -cemt --bigq  -S 8 -M mutt --pgp-move "  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
 
-#displaying html emails
+## Headers
+ignore *
+unignore from: to: cc: bcc: date: subject:
+unhdr_order *
+hdr_order Date From: To Cc Bcc X-Label: Message-ID: Subject
+
+## Displaying html emails
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 set mailcap_path = ~/.mutt/mailcap
 
-
-# Status Bar -----------------------------------------
+# Status Bar -------------------------------------
 set status_chars  = " *%A"
 set status_format = "- [ Folder: %f ] —  [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ] %>—— %?p?( %p postponed )?"
-set help=no # remove the top bar
 
-#format
+# Formats ----------------------------------------
 set date_format = "%Y-%m-%d %a %R"
-set index_format = "%S   %D   %-20.20F %?y?[%.20Y] ?%s %> %4c"
-#set index_format = "%4C %Z %{%b %d} %-15.15L (%4c) %s"
-##
 set folder_format="%2C %t %N %f %> %4s %d"
-set locale=fr_FR.UTF-8
 
-#édition de mails
-set realname="Hugo Roy"
-set from="hugo@hugoroy.eu"
-#set alternates="hugo@ampoliros.net|hugo@devred.fm|hugo+*@devred.fm|hugo@fsfe.org|roy@fsfeurope.org|hugo@tosdr.org"
+# New message ------------------------------------
 set envelope_from
 set sig_dashes=no
 set fast_reply
 set askcc=no
 set fcc_attach
-set reply_self                 # Removes me from list when replying
-unset mime_forward # forward attachments as part of body
-set forward_format = "[Fwd] %s" # format for subject when forwarding
-set forward_decode # decode when forwarding
+set reply_self  # Removes me from list when replying
+unset mime_forward  # forward attachments as part of body
+set forward_format = "[Fwd] %s"  # format for subject when forwarding
+set forward_decode  # decode when forwarding
 set mime_forward=yes
 set mime_forward_rest=yes
-set attribution="↪ %D, %n <%a>:" #add a line with \n at the end
-set reverse_name #reply as whomever it was to
+set attribution="↪ %D, %n <%a>:"  # Attribution quoted email
+set reverse_name  # reply as whomever it was to
 set include
 set forward_quote
 set rfc2047_parameters=yes
 
-#headers
-ignore *
-unignore from: to: cc: date: subject:
-unhdr_order *
-hdr_order Date From: To Cc Bcc X-Label: Message-ID: Subject
-
-#directories and commands
-set header_cache="~/.mutt/cache/headers"
-set message_cachedir="~/.mutt/cache/bodies"
-set tmpdir="~/.mutt/tmp
-set sendmail="/usr/local/bin/msmtpq" #Envoyer les emails avec msmtpq (msmtp queue)
-set sendmail_wait = -1 #send in the background
-set print_command="muttprint"
-
-#mailboxes
-mailboxes $MAIL
-source ~/.email/mailboxes
-
-#sources
-#source ~/.mutt/notmuch.muttrc 
-source ~/.mutt/kz.muttrc
-source ~/.mutt/bindmac.muttrc
-#source ~/.mutt/virtual-mboxes.muttrc
-source ~/.mutt/sidebar.muttrc
-source ~/.mutt/gnupg.muttrc
-source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases
-source ~/.mutt/alias.muttrc
-
-# account specific sources
+# Accounts ---------------------------------------
 source ~/.mutt/perso.muttrc
 folder-hook devred/* source ~/.mutt/perso.muttrc
 folder-hook ampoliros/* source ~/.mutt/perso.muttrc
@@ -114,26 +108,33 @@ send-hook "~C @tosdr.org" source ~/.mutt/tosdr.muttrc
 #send-hook "~C @gmail.com ~f hugo@hugoroy.eu" source ~/.mutt/to-gmail.muttrc"
 folder-hook . "push <last-entry><current-middle>"
 
-##goobook according to https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
-#set query_command="goobook query '%s'"
-#bind editor <Tab> complete-query
-#macro index,pager A "<pipe-message>goobook reload && goobook add<return>" "add the sender address to Google contacts"
+# Adressbook -------------------------------------
+## Notmuch index: nottoomuch-addresses http://blog.tshirtman.fr/tags/nottoomuch + http://www.guru-group.fi/~too/nottoomuch/nottoomuch-addresses/
+set query_command="$HOME/.mutt/ntmw.sh %s"
+set query_format="%t %-25.24n %a %e"
 
-## http://lostpackets.de/pycarddav/pages/usage.html
+## cardDav server: pycarddav http://lostpackets.de/pycarddav/pages/usage.html
 #set query_command="pc_query -m '%s'"
 #bind editor <Tab> complete-query
 ###need to enable write support for that:
 ##macro index,pager A "<pipe-message>pycard-import<enter>" "add sender address to pycardsyncer"
 #macro index,pager A "<pipe-message>pycardsyncer --debug<enter>" "sync only"
 
-## nottoomuch-addresses http://blog.tshirtman.fr/tags/nottoomuch + http://www.guru-group.fi/~too/nottoomuch/nottoomuch-addresses/
-set query_command="$HOME/.mutt/ntmw.sh %s"
-set query_format="%t %-25.24n %a %e"
+## Google contacts: goobook https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
+#set query_command="goobook query '%s'"
+#bind editor <Tab> complete-query
+#macro index,pager A "<pipe-message>goobook reload && goobook add<return>" "add the sender address to Google contacts"
 
-# colours
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+# Colours ----------------------------------------
 source ~/.mutt/colors/hugo.muttrc
 #source ~/.mutt/colors/polokai #need to figure ouet 256 colors first
+
+
+# Sources ----------------------------------------
+source ~/.mutt/alias.muttrc
+source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases
+#source ~/.mutt/notmuch.muttrc  # notmuch-mutt macros
+source ~/.mutt/kz.muttrc  # mutt-kz specific enhancements
+source ~/.mutt/bindmac.muttrc  # list of bindings and macros
+source ~/.mutt/sidebar.muttrc
+source ~/.mutt/gnupg.muttrc
