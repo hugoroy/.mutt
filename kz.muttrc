@@ -1,17 +1,17 @@
+# Main options -----------------------------------
 set nm_default_uri = "notmuch:///home/hrd/Mail"     # Where is ".notmuch"
 set nm_open_timeout = 0                             # Faster!
 set virtual_spoolfile=yes                           # enable virtual folders
 #set nm_record = yes                                 # apply notmuch to email in mutt's record
 #set nm_record_tags = "new from-me"                  # add tags to mutt's record
 
-#
-# The big difference between mutt-kz and mutt is to organse yourself with
-# notmuch tags instead of simply relying on maildir folders. This allows for
-# more complex mailboxes. But this only works well if you tell notmuch how to
-# apply tags to new mail. Have a look at
-# <http://notmuchmail.org/initial_tagging/> and especially about post-new
-# hooks: `man notmuch-hooks`
-#
+# Mailboxes --------------------------------------
+## The big difference between mutt-kz and mutt is to organse yourself with
+## notmuch tags instead of simply relying on maildir folders. This allows for
+## more complex mailboxes. But this only works well if you tell notmuch how to
+## apply tags to new mail. Have a look at
+## <http://notmuchmail.org/initial_tagging/> and especially about post-new
+## hooks: `man notmuch-hooks`
 
 virtual-mailboxes " New!" "notmuch://?query=(tag:unread OR date:yesterday..today) NOT (tag:archive OR tag:tosdrgroup OR tag:ignore)" \
                 " Perso"  "notmuch://?query=(tag:inbox AND tag:perso) NOT (tag:archive OR tag:ignore)" \
@@ -50,6 +50,7 @@ virtual-mailboxes " New!" "notmuch://?query=(tag:unread OR date:yesterday..today
                 " archives" "notmuch://?query=tag:archive OR folder:archives/ NOT tag:ignore" 
 
 
+# Tags -------------------------------------------
 tag-transforms  "inbox"   "☕"   \
                 "unread"  "✉"   \
                 "replied" "↪"  \
@@ -66,6 +67,7 @@ tag-formats   "inbox"     "GI" \
               "deleted"   "GD" \
               "invites"   "Gi"
 
+# Formats ----------------------------------------
 set index_format="%?GS?%GS& ?%?Gs?%Gs& ?%?GR?%GR& ? %D  %-20.20F %?M?(%3M)&     ? %s %> %4c"
 set status_format = "Folder: %f   %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)?  %> %?p?( %p postponed )?"
 set pager_format = "                                      -%Z- %C/%m: %-20.20n   %s%*  -- %?g?(%g)? - (%P)" # All the space corresponds to the sidebar
