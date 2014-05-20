@@ -1,7 +1,7 @@
 .mutt
 =====
 
-My ~/.[mutt] (now customised for [mutt-kz])
+My ~/.[mutt] config (now customised for [mutt-kz])
 
 [mutt]: http://www.mutt.org/
 [mutt-kz]: https://github.com/karelzak/mutt-kz
