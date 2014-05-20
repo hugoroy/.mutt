@@ -4,7 +4,7 @@ set spoolfile=~/Mail/ampoliros/INBOX  # quel dossier afficher par défaut
 set mbox_type=Maildir
 
 ## Mailboxes
-mailboxes $MAIL
+#mailboxes $MAIL
 source ~/.email/mailboxes  # generated with offlineimap
 
 # Who am I? --------------------------------------

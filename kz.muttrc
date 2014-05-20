@@ -30,7 +30,6 @@ virtual-mailboxes " New!" "notmuch://?query=(tag:unread OR date:yesterday..today
                 " ToSDR"   "notmuch://?query=tag:tosdr AND tag:inbox NOT (tag:archive OR tag:ignore OR tag:tosdrgroup)" \
                 "   group"  "notmuch://?query=tag:tosdrgroup NOT (tag:archive OR tag:ignore)" \
                 "   tsback" "notmuch://?query=from:tosback@tosdr.org" \
-                " Venise"  "notmuch://?query=tag:Venise" \
                 " ⚑ "  "notmuch://?query=tag:flagged NOT tag:tosdrgroup" \
                 " ★ "  "notmuch://?query=tag:*&type=threads" \
                 " ♥ "   "notmuch://?query=tag:zaza" \
