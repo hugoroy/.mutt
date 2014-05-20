@@ -7,8 +7,8 @@ my_hdr From: Hugo Roy <hugo@fsfe.org>
 my_hdr Organization: Free Software Foundation Europe, e.V. 
 
 set from = "hugo@fsfe.org"
-set sendmail = "/usr/bin/msmtp -a fsfe"
-set mbox = "+fsfe/INBOX.Archives"
+set sendmail = "/usr/local/bin/msmtpq -a fsfe"
+#set mbox = "+fsfe/INBOX.Archives" #I never understood WTH that is.
 set record = "+fsfe/INBOX.Envoy&AOk-s"
 set postponed = "+fsfe/INBOX.Brouillons"
 set signature = "~/.mutt/fsfe.signature" # my signature file

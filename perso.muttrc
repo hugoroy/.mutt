@@ -5,7 +5,7 @@ my_hdr From: Hugo Roy <hugo@hugoroy.eu>
 
 
 set from = "hugo@hugoroy.eu"
-set sendmail = "/usr/bin/msmtp -a ampoliros"
+set sendmail = "/usr/local/bin/msmtpq -a ampoliros"
 set mbox = "+ampoliros/Archive"
 set record = "+ampoliros/Sent"
 set postponed = "+ampoliros/Drafts"

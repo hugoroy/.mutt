@@ -9,7 +9,7 @@ mono bold bold
 
 # index
 color index brightcyan default ~N
-color index yellow default ~O
+color index brightcyan default ~O
 color index magenta default ~F
 color index blue black ~T
 color index red default ~D

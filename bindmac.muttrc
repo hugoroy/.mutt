@@ -1,0 +1,45 @@
+
+#bindings pager and index
+bind index,pager / vfolder-from-query #looks up for notmuch query
+bind index,pager <F8> vfolder-from-query #Habits die hard
+bind index,pager \\ entire-thread #Reconstruct the entire thread with notmuch
+bind index,pager <F9> entire-thread #Habits die hard
+bind index,pager * modify-labels #+Add or -Remove notmuch tags
+bind index,pager µ modify-labels-then-hide #+Add or -Remove notmuch tags then hide the message
+bind index,pager s save-message
+bind index,pager <esc>c decrypt-copy
+
+bind index gg first-entry
+bind index G last-entry
+bind index <space> collapse-thread
+
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line
+bind pager G bottom
+bind pager g group-reply
+bind pager <esc> exit
+
+
+#macro
+macro index M "T.*<enter>;" "Mark all messages"
+macro index \er "|~/.email/org-mutt/remember-mail\n" "integrate with org-mode"
+macro pager 0 ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
+macro pager 1 ":set display_filter='t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt'; exec exit\n:exec display-message\n" "TOFU protection on" 
+
+# notmuch bindings
+macro index,pager + "<modify-labels>+*<enter><sync-mailbox>" "tag as starred"
+macro index,pager - "<modify-labels>-*<enter><sync-mailbox>"  "tag as unstarred"
+macro index,pager O "! offlineimap -o<enter><sync-mailbox>" "Sync IMAP"
+macro index U "<sync-mailbox>! notmuch new<enter><sync-mailbox>" "Update mailboxes with tags and all"
+
+macro index S "<tag-entry><tag-prefix><toggle-new><tag-prefix><save-message>" "mark as read and save"
+macro index,pager <esc>s "<tag-thread><tag-prefix><save-message>" "mark as read and save"
+
+macro index,pager a "<modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "archive"
+macro index A "<tag-entry><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "Mark as read and archive"
+macro index,pager <esc>a "<tag-thread><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "archive thread"
+macro index <esc>A "<tag-thread><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "Mark as read and archive thread"
+
+macro index,pager X "<modify-labels-then-hide>-inbox -unread +junk +ignore<enter><sync-mailbox>" "tag as Junk mail"
+macro index,pager x "<save-message>=Junk<enter>" "Move to =Junk"
+

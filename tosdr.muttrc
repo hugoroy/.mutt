@@ -7,7 +7,7 @@ my_hdr From: Hugo Roy <hugo@tosdr.org>
 my_hdr Organization: Terms of Service, Didn’t Read
 
 set from = "hugo@tosdr.org"
-set sendmail = "/usr/bin/msmtp -a fsfe"
+set sendmail = "/usr/local/bin/msmtpq -a fsfe"
 set mbox = "+fsfe/INBOX.Archives.tosdr"
 set record = "+fsfe/INBOX.Envoy&AOk-s"
 set postponed = "+fsfe/INBOX.Brouillons"

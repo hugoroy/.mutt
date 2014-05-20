@@ -1,18 +1,8 @@
 set nm_default_uri = "notmuch:///home/hrd/Mail"     # Where is ".notmuch"
 set nm_open_timeout = 0                             # Faster!
 set virtual_spoolfile=yes                           # enable virtual folders
-set nm_record = yes                                 # apply notmuch to email in mutt's record
-set nm_record_tags = "me"                           # add tags to mutt's record
-
-# notmuch bindings
-#macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
-macro index,pager X "t;<modify-labels-then-hide>-inbox -unread +junk\n;s=Junk\n" "tag as Junk mail and move it"
-macro index,pager + "<modify-labels>+*\n<sync-mailbox>" "tag as starred"
-macro index,pager - "<modify-labels>-*\n<sync-mailbox>"  "tag as unstarred"
-macro index $ "<sync-mailbox>! notmuch new\n"
-macro index,pager <F8> "<vfolder-from-query>" "Search query"
-macro index,pager <F9> "<entire-thread>" "Reconstruct the entire thread"
-macro index S "t;N<modify-labels>-unread\n<sync-mailbox>;s" "Mark as read and archive"
+#set nm_record = yes                                 # apply notmuch to email in mutt's record
+#set nm_record_tags = "new from-me"                  # add tags to mutt's record
 
 #
 # The big difference between mutt-kz and mutt is to organse yourself with
@@ -24,24 +14,23 @@ macro index S "t;N<modify-labels>-unread\n<sync-mailbox>;s" "Mark as read and ar
 #
 
 virtual-mailboxes " New!" "notmuch://?query=(tag:unread OR date:yesterday..today) NOT (tag:archive OR tag:tosdrgroup OR tag:ignore)" \
-                " Perso"  "notmuch://?query=folder:ampoliros/INBOX AND (tag:inbox AND tag:perso) NOT tag:archive" \
-                " FSFE"   "notmuch://?query=folder:fsfe/INBOX AND (tag:inbox AND tag:fsfe) NOT tag:archive" \
-                "   team"      "notmuch://?query=folder:fsfe/INBOX.exe.team/ NOT tag:archive NOT tag:reports" \
-                "   legal"     "notmuch://?query=folder:fsfe/INBOX.legal/ NOT tag:archive" \
-                "   france"    "notmuch://?query=folder:fsfe/INBOX.france/ NOT tag:archive" \
-                "   ga"        "notmuch://?query=folder:fsfe/INBOX.exe.ga/ NOT tag:archive" \
-                "   lglntwrk"  "notmuch://?query=folder:fsfe/INBOX.legal.network/ NOT tag:archive" \
-                "   trad"      "notmuch://?query=folder:fsfe/INBOX.trad/ NOT tag:archive" \
-                "   web"       "notmuch://?query=folder:fsfe/INBOX.web/ NOT tag:archive" \
-                "   campaigns" "notmuch://?query=folder:fsfe/INBOX.campaigns/ NOT tag:archive" \
-                "   lists"     "notmuch://?query=folder:fsfe/INBOX.lists* NOT tag:archive" \
-                "   reports"   "notmuch://?query=tag:reports AND tag:fsfe NOT tag:archive" \
-                "   sig apps"  "notmuch://?query=folder:fsfe/INBOX.legal.network.sig-app/" \
-                "   sig prcrm" "notmuch://?query=folder:fsfe/INBOX.legal.network.sig-proc/" \
-                "   sig swlnk" "notmuch://?query=folder:fsfe/INBOX.legal.network.sig-swlink/" \
-                " ToS;DR"   "notmuch://?query=folder:fsfe/INBOX.tosdr/ NOT (tag:archive OR tag:tosdrgroup)" \
-                "   group"  "notmuch://?query=+tag:tosdrgroup NOT tag:archive" \
+                " Perso"  "notmuch://?query=(tag:inbox AND tag:perso) NOT (tag:archive OR tag:ignore)" \
+                " FSFE"   "notmuch://?query=(tag:inbox AND tag:fsfe) NOT (tag:archive OR tag:ignore)" \
+                "   team"      "notmuch://?query=tag:fsfe AND tag:team NOT tag:reports NOT (tag:archive OR tag:ignore)" \
+                "   france"    "notmuch://?query=tag:fsfe AND tag:france NOT (tag:archive OR tag:ignore)" \
+                "   ga"        "notmuch://?query=tag:fsfe AND tag:ga NOT (tag:archive OR tag:ignore)" \
+                "   legal"     "notmuch://?query=tag:fsfe AND tag:ftf NOT (tag:legal-network OR tag:archive OR tag:ignore)" \
+                "   lglntwrk"  "notmuch://?query=tag:fsfe AND tag:legal-network NOT (tag:archive OR tag:ignore)" \
+                "   trad"      "notmuch://?query=tag:fsfe AND tag:trad NOT (tag:archive OR tag:ignore)" \
+                "   web"       "notmuch://?query=tag:fsfe AND tag:web NOT (tag:archive OR tag:ignore)" \
+                "   campaigns" "notmuch://?query=tag:fsfe AND tag:campaigns NOT (tag:archive OR tag:ignore)" \
+                "   lists"     "notmuch://?query=tag:fsfe AND tag:lists NOT (tag:archive OR tag:ignore)" \
+                "   reports"   "notmuch://?query=tag:fsfe AND tag:reports NOT (tag:archive OR tag:ignore)" \
+                "   ln-sig"  "notmuch://?query=tag:legal-network AND tag:sig NOT (tag:archive OR tag:ignore)" \
+                " ToSDR"   "notmuch://?query=tag:tosdr AND tag:inbox NOT (tag:archive OR tag:ignore OR tag:tosdrgroup)" \
+                "   group"  "notmuch://?query=tag:tosdrgroup NOT (tag:archive OR tag:ignore)" \
                 "   tsback" "notmuch://?query=from:tosback@tosdr.org" \
+                " Venise"  "notmuch://?query=tag:Venise" \
                 " ⚑ "  "notmuch://?query=tag:flagged NOT tag:tosdrgroup" \
                 " ★ "  "notmuch://?query=tag:*&type=threads" \
                 " ♥ "   "notmuch://?query=tag:zaza" \
@@ -50,7 +39,7 @@ virtual-mailboxes " New!" "notmuch://?query=(tag:unread OR date:yesterday..today
                 "   ToS;DR" "notmuch://?query=tag:tosdr NOT tag:tosdrgroup" \
                 " Recent"   "notmuch://?query=date:last_week..today NOT tag:ignore" \
                 " INBOX"  "notmuch://?query=tag:inbox NOT tag:archive" \
-                " Sent"   "notmuch://?query=tag:me NOT tag:archive" \
+                " Sent"   "notmuch://?query=tag:from-me NOT tag:archive" \
                 " Trash"    "notmuch://?query=tag:spam or tag:junk or tag:ignore or folder:Trash or folder:Corbeille or folder:Spam or folder:Junk" \
                 "   2014"   "notmuch://?query=date:01-2014..12-2014 NOT tag:ignore" \
                 "   2013"   "notmuch://?query=date:01-2013..12-2013 NOT tag:ignore" \
