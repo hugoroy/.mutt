@@ -22,7 +22,7 @@ bind pager <esc> exit
 
 #macro
 macro index M "T.*<enter>;" "Mark all messages"
-macro index \er "|~/.email/org-mutt/remember-mail\n" "integrate with org-mode"
+macro index,pager \er "|~/.email/org-mutt/remember-mail\n" "integrate with org-mode"
 macro pager 0 ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
 macro pager 1 ":set display_filter='t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt'; exec exit\n:exec display-message\n" "TOFU protection on" 
 
