@@ -54,7 +54,7 @@ set pager_context=4      # no. of lines of context to give when scrolling
 set menu_scroll
 set smart_wrap
 unset markers  # no ugly plus signs
-set display_filter="t-prot -cemt --bigq  -S 8 -M mutt --pgp-move "  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
+set display_filter="t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move "  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
 
 ## Headers
 ignore *
