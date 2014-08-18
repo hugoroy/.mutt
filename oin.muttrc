@@ -1,0 +1,8 @@
+source ~/.mutt/perso.muttrc
+
+my_hdr From: Hugo Roy <hroy@openinventionnetwork.com>
+
+set from = "hroy@openinventionnetwork.com"
+set sendmail = "/usr/local/bin/msmtpq -a openinventionnetwork"
+set signature = "~/.mutt/oin.signature" # my signature file
+set locale=en_US.UTF-8
