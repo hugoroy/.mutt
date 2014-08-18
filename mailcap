@@ -1,4 +1,9 @@
-text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+text/html; lynx -display_charset=utf-8 -dump %s; print=epiphany %s; nametemplate=%s.html; copiousoutput
 application/pdf; evince %s
 image/jpeg; eog %s
 image/png; eog %s
+image/gif; eog %s
+image/svg+xml; eog %s
+application/vnd.oasis.opendocument.text; libreoffice %s
+application/vnd.oasis.opendocument.spreadsheet; libreoffice %s
+application/octet-stream; file-roller %s
