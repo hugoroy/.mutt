@@ -21,4 +21,3 @@ fcc-save-hook "~C tosdr@googlegroups.com" =fsfe/INBOX.tosdr.group
 fcc-save-hook "~C tosback@tosdr.org" =fsfe/INBOX.tosback
 fcc-save-hook "~C tosback2@eff.org" =fsfe/INBOX.tosback
 
-subscribe tosdr@googlegroups.com cgu-pas-lu@googlegroups.com opennotice@googlegroups.com wg-infosharing@kantarainitiative.org tosback2@eff.org team@tosdr.org
