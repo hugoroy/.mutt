@@ -1,9 +1,12 @@
 # Main options -----------------------------------
 set nm_default_uri = "notmuch:///home/hrd/Mail"     # Where is ".notmuch"
-set nm_open_timeout = 0                             # Faster!
+set nm_open_timeout = 3                             # Faster!
 set virtual_spoolfile=yes                           # enable virtual folders
-#set nm_record = yes                                 # apply notmuch to email in mutt's record
-#set nm_record_tags = "new from-me"                  # add tags to mutt's record
+set nm_record = yes                                 # apply notmuch to email in mutt's record
+set nm_record_tags = "from-me"                  # add tags to mutt's record
+#set nm_hidden_tags = "unread,draft,flagged,passed,replied,attachment"
+#set nm_unread_tag = "unread"
+set nm_exclude_tags = "ignore"
 
 # Mailboxes --------------------------------------
 ## The big difference between mutt-kz and mutt is to organse yourself with
@@ -18,9 +21,9 @@ virtual-mailboxes \
                 "  OpenInvNet" "notmuch://?query=(tag:inbox AND tag:oin) NOT (tag:archive OR tag:ignore)" \
                 "  ToSDR"  "notmuch://?query=tag:tosdr AND tag:inbox NOT (tag:archive OR tag:ignore OR tag:tosdrgroup)" \
                 "  FSFE"   "notmuch://?query=(tag:inbox AND tag:fsfe) NOT (tag:archive OR tag:ignore)" \
-                "  lists"  "notmuch://?query=tag:lists NOT (tag:archive OR tag:ignore)" \
+                "  lists"  "notmuch://?query=(tag:lists OR tag:mod) NOT (tag:archive OR tag:ignore)" \
                 " ⚑ Flagged" "notmuch://?query=tag:flagged NOT tag:tosdrgroup" \
-                " ☕ INBOX"   "notmuch://?query=tag:inbox NOT tag:archive" \
+                " ☕ INBOX"   "notmuch://?query=tag:inbox NOT (tag:lists OR tag:archive)" \
                 "   team"      "notmuch://?query=tag:fsfe AND tag:team NOT tag:reports NOT (tag:archive OR tag:ignore)" \
                 "   france"    "notmuch://?query=tag:fsfe AND tag:france NOT (tag:archive OR tag:ignore)" \
                 "   ga"        "notmuch://?query=tag:fsfe AND tag:ga NOT (tag:archive OR tag:ignore)" \
@@ -32,6 +35,7 @@ virtual-mailboxes \
                 "   ln-sig"  "notmuch://?query=tag:legal-network AND tag:sig NOT (tag:archive OR tag:ignore)" \
                 "   tosdrgroup" "notmuch://?query=tag:tosdrgroup NOT (tag:archive OR tag:ignore)" \
                 "   tsback" "notmuch://?query=from:tosback@tosdr.org" \
+                "   reports"   "notmuch://?query=tag:reports NOT (tag:archive OR tag:ignore)" \
                 " ★ Starred"  "notmuch://?query=tag:*&type=threads" \
                 "  Recent"   "notmuch://?query=date:last_week..today NOT tag:ignore" \
                 "  Sent"   "notmuch://?query=tag:from-me NOT tag:archive" \
@@ -48,7 +52,6 @@ virtual-mailboxes \
                 "  archives" "notmuch://?query=tag:archive OR folder:archives/ OR path:archives/** NOT tag:ignore" 
 
               # " New!" "notmuch://?query=(tag:unread OR date:yesterday..today) NOT (tag:archive OR tag:tosdrgroup OR tag:ignore)" \
-              # "   reports"   "notmuch://?query=tag:fsfe AND tag:reports NOT (tag:archive OR tag:ignore)" \
 
 # Tags -------------------------------------------
 tag-transforms  "inbox"   "☕"   \
