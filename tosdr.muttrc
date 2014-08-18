@@ -1,5 +1,6 @@
-color status brightyellow black
+source ~/.mutt/fsfe.muttrc
 
+color status brightyellow black
 set spoolfile=~/Mail/fsfe/INBOX.tosdr
 
 unmy_hdr * # remove all extra headers first.
@@ -7,17 +8,11 @@ my_hdr From: Hugo Roy <hugo@tosdr.org>
 my_hdr Organization: Terms of Service, Didn’t Read
 
 set from = "hugo@tosdr.org"
-set sendmail = "/usr/local/bin/msmtpq -a fsfe"
 set mbox = "+fsfe/INBOX.Archives.tosdr"
-set record = "+fsfe/INBOX.Envoy&AOk-s"
-set postponed = "+fsfe/INBOX.Brouillons"
 set signature = "~/.mutt/tosdr.signature" # my signature file
-set editor = "vim -c 'set filetype=mkd'" # -c 'set spell spl=en_gb'"
-set locale=en_GB.UTF-8
 
 save-hook . =fsfe/INBOX.Archives.tosdr
 
 fcc-save-hook "~C tosdr@googlegroups.com" =fsfe/INBOX.tosdr.group
 fcc-save-hook "~C tosback@tosdr.org" =fsfe/INBOX.tosback
 fcc-save-hook "~C tosback2@eff.org" =fsfe/INBOX.tosback
-

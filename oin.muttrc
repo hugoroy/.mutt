@@ -1,5 +1,7 @@
 source ~/.mutt/perso.muttrc
 
+color status brightyellow black
+
 my_hdr From: Hugo Roy <hroy@openinventionnetwork.com>
 
 set from = "hroy@openinventionnetwork.com"
