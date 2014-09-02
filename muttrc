@@ -1,6 +1,6 @@
 # Where’s the mail? ------------------------------
-set folder=~/Mail  # où chercher les emails en local
-set spoolfile=~/Mail/ampoliros/INBOX  # quel dossier afficher par défaut
+set folder=~/Mail 
+set spoolfile=~/Mail/ampoliros/INBOX  
 set postponed=~/Mail/ampoliros/Drafts
 set record=~/Mail/ampoliros/Sent
 set mbox=~/Mail/ampoliros/Archive
@@ -8,10 +8,9 @@ set mbox_type=Maildir
 # set realname=""
 # set from=""
 # set alternates=""
-#mailboxes $MAIL
+# mailboxes $MAIL
 
 # Main options -----------------------------------
-set locale=fr_FR.UTF-8
 set timeout=1800
 set sleep_time = 0  # be fast
 set copy  # save copies of sent messages
@@ -19,15 +18,15 @@ set delete  # don't ask, just do
 unset confirmappend  # don't ask, just do!
 set quit=ask-yes # ask if i want to quit
 set wait_key=no
-#unset mark_old  
+unset mark_old  
 set help=no  # remove the help top bar
 
 ## Directories and commands
 set header_cache="~/.mutt/cache/headers"
 set message_cachedir="~/.mutt/cache/bodies"
-set tmpdir="~/.mutt/tmp
-set sendmail="msmtpq" # Envoyer les emails avec msmtpq (msmtp queue)
-set sendmail_wait = 0 #send in the background
+set tmpdir="~/.mutt/tmp"
+set sendmail="msmtpq" # queue sending emails
+set sendmail_wait=0 #send in the background
 set print_command="muttprint"
 
 # Regexps ----------------------------------------
@@ -35,8 +34,8 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 
 # Index ------------------------------------------
-set sort=threads  # organise par threads
-set sort_aux=last-date-received  # les derniers emails reçus en bas, permet de bouger les threads également
+set sort=threads
+set sort_aux=last-date-received  # last received email at bottom
 # unset collapse_unread  # don't collapse threads with unread mails
 set sort_re  # thread based on regex
 set uncollapse_jump  # don't collapse on an unread message
@@ -44,12 +43,12 @@ set index_format = "%S   %D   %-20.20F %?y?[%.20Y] ?%s %> %4c"
 #set index_format = "%4C %Z %{%b %d} %-15.15L (%4c) %s"
 
 # Pager ------------------------------------------
-set pager_index_lines=9  # affiche le nombre de sujets en haut en mode pager
-set pager_context=4      # no. of lines of context to give when scrolling
+set pager_index_lines=9  # how many lines from the index to show
+set pager_context=4      # no. of lines of context to give when scrolling message
 set menu_scroll
 set smart_wrap
 unset markers  # no ugly plus signs
-set display_filter="t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move --pgp-short"  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
+set display_filter="t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move --pgp-short"  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom
 
 ## Displaying html emails
 auto_view text/html
@@ -72,7 +71,6 @@ hdr_order Date From: To Cc Bcc X-Label: Message-ID: Subject
 
 # New message ------------------------------------
 set editor="vim -c 'set filetype=mkd' -c 'norm}'"
-#set editor="vim %s +\`awk ' /^$/ {print i+2; exit} {i++}' %s\` -c ':0;/^$/+'" 	
 set edit_headers # edit the headers in the email editor
 set envelope_from
 set sig_dashes=no
