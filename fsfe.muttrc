@@ -13,7 +13,7 @@ set postponed = "+fsfe/INBOX.Brouillons"
 set signature = "~/.mutt/fsfe.signature" # my signature file
 
 set locale=en_GB.UTF-8
-set nm_record_tags = "from-me unread inbox fsfe"          # add tags to mutt's record
+set nm_record_tags = "from-me inbox fsfe"          # add tags to mutt's record
 
 save-hook . =fsfe/INBOX.Archives.2014
 

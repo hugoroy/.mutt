@@ -8,4 +8,4 @@ set from = "hroy@openinventionnetwork.com"
 set sendmail = "/usr/local/bin/msmtpq -a openinventionnetwork"
 set signature = "~/.mutt/oin.signature" # my signature file
 set locale=en_US.UTF-8
-set nm_record_tags = "from-me unread inbox oin"            # add tags to mutt's record
+set nm_record_tags = "from-me inbox oin"            # add tags to mutt's record

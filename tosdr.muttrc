@@ -9,7 +9,7 @@ my_hdr From: Hugo Roy <hugo@tosdr.org>
 set from = "hugo@tosdr.org"
 set mbox = "+fsfe/INBOX.Archives.tosdr"
 set signature = "~/.mutt/tosdr.signature" # my signature file
-set nm_record_tags = "from-me unread inbox tosdr"          # add tags to mutt's record
+set nm_record_tags = "from-me inbox tosdr"          # add tags to mutt's record
 
 save-hook . =fsfe/INBOX.Archives.tosdr
 

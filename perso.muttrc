@@ -11,7 +11,7 @@ set record = "+ampoliros/Sent"
 set postponed = "+ampoliros/Drafts"
 set signature = "~/.mutt/perso.signature" # my signature file
 set locale=fr_FR.UTF-8
-set nm_record_tags = "from-me unread inbox perso"          # add tags to mutt's record
+set nm_record_tags = "from-me inbox perso"          # add tags to mutt's record
 
 save-hook . =ampoliros/Archive.2014
 
