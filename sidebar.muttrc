@@ -12,8 +12,6 @@ set sidebar_visible=yes
 #mutt-kz:
 set sort_sidebar = unsorted
 set sidebar_delim="           "
-bind index \CY sidebar-toggle
-
 
 
 # color of folders with new mail
@@ -22,17 +20,17 @@ bind index \CY sidebar-toggle
 
 # ctrl-n, ctrl-p to select next, prev folder
 # ctrl-o to open selected folder
-bind index,pager \CP sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
+#bind index,pager \CP sidebar-prev
+#bind index,pager \CN sidebar-next
+#bind index,pager \CO sidebar-open
 
 # I don't need these. just for documentation purposes. See below.
 # sidebar-scroll-up
 # sidebar-scroll-down
 
 # B toggles sidebar visibility
-macro index \CB '<enter-command>toggle sidebar_visible<enter><refresh>'
-macro pager \CB '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+#macro index \CB '<enter-command>toggle sidebar_visible<enter><refresh>'
+#macro pager \CB '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 
 #
 # Mario Holbe suggests:
