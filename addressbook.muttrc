@@ -1,0 +1,17 @@
+# Adressbook -------------------------------------
+## Notmuch index: nottoomuch-addresses http://blog.tshirtman.fr/tags/nottoomuch + http://www.guru-group.fi/~too/nottoomuch/nottoomuch-addresses/
+set query_command="$HOME/.mutt/ntmw.sh %s"
+set query_format="%t %-25.24n %a %e"
+
+## cardDav server: pycarddav http://lostpackets.de/pycarddav/pages/usage.html
+#set query_command="pc_query -m '%s'"
+#bind editor <Tab> complete-query
+###need to enable write support for that:
+##macro index,pager A "<pipe-message>pycard-import<enter>" "add sender address to pycardsyncer"
+#macro index,pager A "<pipe-message>pycardsyncer --debug<enter>" "sync only"
+
+## Google contacts: goobook https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
+#set query_command="goobook query '%s'"
+#bind editor <Tab> complete-query
+#macro index,pager A "<pipe-message>goobook reload && goobook add<return>" "add the sender address to Google contacts"
+

@@ -5,15 +5,10 @@ set postponed=~/Mail/ampoliros/Drafts
 set record=~/Mail/ampoliros/Sent
 set mbox=~/Mail/ampoliros/Archive
 set mbox_type=Maildir
-
-## Mailboxes
+# set realname=""
+# set from=""
+# set alternates=""
 #mailboxes $MAIL
-source ~/.email/mailboxes  # generated with offlineimap
-
-# Who am I? --------------------------------------
-set realname="Hugo Roy"
-set from="hugo@hugoroy.eu"
-#set alternates="hugo@ampoliros.net|hugo@devred.fm|hugo+*@ampoliros.net|hugo@fsfe.org|roy@fsfeurope.org|hugo@tosdr.org|hugoroyd@gmail.com|hugojroy@gmail.com"
 
 # Main options -----------------------------------
 set locale=fr_FR.UTF-8
@@ -56,12 +51,6 @@ set smart_wrap
 unset markers  # no ugly plus signs
 set display_filter="t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move --pgp-short"  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
 
-## Headers
-ignore *
-unignore from: to: cc: bcc: date: subject:
-unhdr_order *
-hdr_order Date From: To Cc Bcc X-Label: Message-ID: Subject
-
 ## Displaying html emails
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -74,6 +63,12 @@ set status_format = "- [ Folder: %f ] —  [%r%m messages%?n? (%n new)?%?d? (%d 
 # Formats ----------------------------------------
 set date_format = "%Y-%m-%d %a %R"
 set folder_format="%2C %t %N %f %> %4s %d"
+
+## Headers
+ignore *
+unignore from: to: cc: bcc: date: subject:
+unhdr_order *
+hdr_order Date From: To Cc Bcc X-Label: Message-ID: Subject
 
 # New message ------------------------------------
 set editor="vim -c 'set filetype=mkd' -c 'norm}'"
@@ -96,49 +91,14 @@ set include
 set forward_quote
 set rfc2047_parameters=yes
 
-# Accounts ---------------------------------------
-source ~/.mutt/perso.muttrc
-folder-hook ampoliros/* source ~/.mutt/perso.muttrc
-folder-hook perso/* source ~/.mutt/perso.muttrc
-folder-hook /var/spool/mail/hrd/* source ~/.mutt/perso.muttrc
-folder-hook fsfe/* source ~/.mutt/fsfe.muttrc
-send-hook "~f @fsfe*" source ~/.mutt/fsfe.muttrc
-send-hook "~C @fsfe*" source ~/.mutt/fsfe.muttrc
-folder-hook fsfe/INBOX.tosdr* source ~/.mutt/tosdr.muttrc
-folder-hook tosdr/* source ~/.mutt/tosdr.muttrc
-folder-hook tosdrgroup/* source ~/.mutt/tosdr.muttrc
-send-hook "~f tosdr*" source ~/.mutt/tosdr.muttrc
-send-hook "~C @tosdr.org" source ~/.mutt/tosdr.muttrc
-folder-hook oin/* source ~/.mutt/oin.muttrc
-send-hook "~f oin@ampoliros*" source ~/.mutt/oin.muttrc
-send-hook "~C @openinventionnetwork.com" source ~/.mutt/oin.muttrc
-folder-hook today/* source ~/.mutt/perso.muttrc
-folder-hook . "push <last-entry><current-middle>"
-
-# Adressbook -------------------------------------
-## Notmuch index: nottoomuch-addresses http://blog.tshirtman.fr/tags/nottoomuch + http://www.guru-group.fi/~too/nottoomuch/nottoomuch-addresses/
-set query_command="$HOME/.mutt/ntmw.sh %s"
-set query_format="%t %-25.24n %a %e"
-
-## cardDav server: pycarddav http://lostpackets.de/pycarddav/pages/usage.html
-#set query_command="pc_query -m '%s'"
-#bind editor <Tab> complete-query
-###need to enable write support for that:
-##macro index,pager A "<pipe-message>pycard-import<enter>" "add sender address to pycardsyncer"
-#macro index,pager A "<pipe-message>pycardsyncer --debug<enter>" "sync only"
-
-## Google contacts: goobook https://pypi.python.org/pypi/goobook/1.4alpha4#mutt
-#set query_command="goobook query '%s'"
-#bind editor <Tab> complete-query
-#macro index,pager A "<pipe-message>goobook reload && goobook add<return>" "add the sender address to Google contacts"
-
 # Colours ----------------------------------------
 source ~/.mutt/colors/hugo.muttrc
-#source ~/.mutt/colors/polokai #need to figure ouet 256 colors first
-
 
 # Sources ----------------------------------------
+source ~/.email/mailboxes  # generated with offlineimap
+source ~/.mutt/identity.muttrc
 source ~/.mutt/alias.muttrc
+source ~/.mutt/addressbook.muttrc
 source ~/.mutt/subscribe.muttrc
 source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases
 #source ~/.mutt/notmuch.muttrc  # notmuch-mutt macros
