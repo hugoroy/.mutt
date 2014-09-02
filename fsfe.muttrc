@@ -4,7 +4,6 @@ set spoolfile=~/Mail/fsfe/INBOX
 
 unmy_hdr * # remove all extra headers first.
 my_hdr From: Hugo Roy <hugo@fsfe.org>
-my_hdr Organization: Free Software Foundation Europe, e.V. 
 
 set from = "hugo@fsfe.org"
 set sendmail = "/usr/local/bin/msmtpq -a fsfe"
@@ -12,8 +11,9 @@ set sendmail = "/usr/local/bin/msmtpq -a fsfe"
 set record = "+fsfe/INBOX.Envoy&AOk-s"
 set postponed = "+fsfe/INBOX.Brouillons"
 set signature = "~/.mutt/fsfe.signature" # my signature file
-set editor = "vim -c 'set filetype=mkd'" # -c 'set spell spl=en_gb'"
+
 set locale=en_GB.UTF-8
+set nm_record_tags = "from-me unread inbox fsfe"          # add tags to mutt's record
 
 save-hook . =fsfe/INBOX.Archives.2014
 

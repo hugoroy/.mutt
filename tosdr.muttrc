@@ -5,11 +5,11 @@ set spoolfile=~/Mail/fsfe/INBOX.tosdr
 
 unmy_hdr * # remove all extra headers first.
 my_hdr From: Hugo Roy <hugo@tosdr.org>
-my_hdr Organization: Terms of Service, Didn’t Read
 
 set from = "hugo@tosdr.org"
 set mbox = "+fsfe/INBOX.Archives.tosdr"
 set signature = "~/.mutt/tosdr.signature" # my signature file
+set nm_record_tags = "from-me unread inbox tosdr"          # add tags to mutt's record
 
 save-hook . =fsfe/INBOX.Archives.tosdr
 

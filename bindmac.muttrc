@@ -7,7 +7,6 @@ bind index,pager <F9> entire-thread #Habits die hard
 bind index,pager * modify-labels #+Add or -Remove notmuch tags
 bind index,pager µ modify-labels-then-hide #+Add or -Remove notmuch tags then hide the message
 bind index,pager s save-message
-bind index,pager <esc>c decrypt-copy
 
 bind index gg first-entry
 bind index G last-entry
@@ -24,7 +23,7 @@ bind pager <esc> exit
 macro index M "T.*<enter>;" "Mark all messages"
 macro index,pager \er "|~/.email/org-mutt/remember-mail\n" "integrate with org-mode"
 macro pager 0 ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
-macro pager 1 ":set display_filter='t-prot -cemt --bigq  --pgp-move -S 8 -Mmutt'; exec exit\n:exec display-message\n" "TOFU protection on" 
+macro pager 1 ":set display_filter='t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move-vrf --pgp-short'; exec exit\n:exec display-message\n" "TOFU protection on" 
 
 # notmuch bindings
 macro index,pager + "<modify-labels>+*<enter><sync-mailbox>" "tag as starred"
@@ -34,6 +33,8 @@ macro index U "<sync-mailbox>! notmuch new<enter><sync-mailbox>" "Update mailbox
 
 macro index S "<tag-entry><tag-prefix><toggle-new><tag-prefix><save-message>" "mark as read and save"
 macro index,pager <esc>s "<tag-thread><tag-prefix><save-message>" "mark as read and save"
+
+macro index,pager <esc>c "<tag-entry><tag-prefix><modify-labels>+decrypted<enter><tag-prefix><decrypt-save>" "decrypt and save"
 
 macro index,pager a "<modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "archive"
 macro index A "<tag-entry><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "Mark as read and archive"

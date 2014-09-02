@@ -54,7 +54,7 @@ set pager_context=4      # no. of lines of context to give when scrolling
 set menu_scroll
 set smart_wrap
 unset markers  # no ugly plus signs
-set display_filter="t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move "  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
+set display_filter="t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move --pgp-short"  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom with t-prot
 
 ## Headers
 ignore *
@@ -76,6 +76,9 @@ set date_format = "%Y-%m-%d %a %R"
 set folder_format="%2C %t %N %f %> %4s %d"
 
 # New message ------------------------------------
+set editor="vim -c 'set filetype=mkd' -c 'norm}'"
+#set editor="vim %s +\`awk ' /^$/ {print i+2; exit} {i++}' %s\` -c ':0;/^$/+'" 	
+set edit_headers # edit the headers in the email editor
 set envelope_from
 set sig_dashes=no
 set fast_reply

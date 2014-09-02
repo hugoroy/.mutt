@@ -3,7 +3,7 @@ set nm_default_uri = "notmuch:///home/hrd/Mail"     # Where is ".notmuch"
 set nm_open_timeout = 3                             # Faster!
 set virtual_spoolfile=yes                           # enable virtual folders
 set nm_record = yes                                 # apply notmuch to email in mutt's record
-set nm_record_tags = "from-me"                  # add tags to mutt's record
+set nm_record_tags = "from-me unread inbox"         # add tags to mutt's record
 #set nm_hidden_tags = "unread,draft,flagged,passed,replied,attachment"
 #set nm_unread_tag = "unread"
 set nm_exclude_tags = "ignore"
@@ -19,14 +19,14 @@ set nm_exclude_tags = "ignore"
 virtual-mailboxes \
                 "  Perso"  "notmuch://?query=(tag:inbox AND tag:perso) NOT (tag:archive OR tag:ignore)" \
                 "  OpenInvNet" "notmuch://?query=(tag:inbox AND tag:oin) NOT (tag:archive OR tag:ignore)" \
-                "  ToSDR"  "notmuch://?query=tag:tosdr AND tag:inbox NOT (tag:archive OR tag:ignore OR tag:tosdrgroup)" \
+                "  ToSDR"  "notmuch://?query=tag:tosdr AND tag:inbox NOT (tag:archive OR tag:ignore)" \
                 "  FSFE"   "notmuch://?query=(tag:inbox AND tag:fsfe) NOT (tag:archive OR tag:ignore)" \
                 "  lists"  "notmuch://?query=(tag:lists OR tag:mod) NOT (tag:archive OR tag:ignore)" \
-                " ⚑ Flagged" "notmuch://?query=tag:flagged NOT tag:tosdrgroup" \
+                " ⚑ Flagged" "notmuch://?query=tag:flagged" \
                 " ☕ INBOX"   "notmuch://?query=tag:inbox NOT (tag:lists OR tag:archive)" \
                 "   team"      "notmuch://?query=tag:fsfe AND tag:team NOT tag:reports NOT (tag:archive OR tag:ignore)" \
                 "   france"    "notmuch://?query=tag:fsfe AND tag:france NOT (tag:archive OR tag:ignore)" \
-                "   ga"        "notmuch://?query=tag:fsfe AND tag:ga NOT (tag:archive OR tag:ignore)" \
+                "   ga"        "notmuch://?query=tag:fsfe AND tag:ga NOT (tag:archive OR tag:ignore) OR (to:mission@q.fsfe.org NOT tag:archive)" \
                 "   legal"     "notmuch://?query=tag:fsfe AND tag:ftf NOT (tag:legal-network OR tag:archive OR tag:ignore)" \
                 "   lglntwrk"  "notmuch://?query=tag:fsfe AND tag:legal-network NOT (tag:archive OR tag:ignore)" \
                 "   trad"      "notmuch://?query=tag:fsfe AND tag:trad NOT (tag:archive OR tag:ignore)" \
@@ -34,6 +34,7 @@ virtual-mailboxes \
                 "   campaigns" "notmuch://?query=tag:fsfe AND tag:campaigns NOT (tag:archive OR tag:ignore)" \
                 "   ln-sig"  "notmuch://?query=tag:legal-network AND tag:sig NOT (tag:archive OR tag:ignore)" \
                 "   tosdrgroup" "notmuch://?query=tag:tosdrgroup NOT (tag:archive OR tag:ignore)" \
+                "   tosdrtodo" "notmuch://?query=tag:tosdrgroup AND tag:todo NOT (tag:ignore)" \
                 "   tsback" "notmuch://?query=from:tosback@tosdr.org" \
                 "   reports"   "notmuch://?query=tag:reports NOT (tag:archive OR tag:ignore)" \
                 " ★ Starred"  "notmuch://?query=tag:*&type=threads" \
