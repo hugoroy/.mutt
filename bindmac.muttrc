@@ -1,52 +1,52 @@
 
 #--- Navigate ----
-bind index gg first-entry
-bind index G last-entry
-bind index <space> collapse-thread
-bind pager <up> previous-line #scroll inside the message rather than the index
-bind pager <down> next-line
-bind pager G bottom
-bind pager g group-reply
-bind pager <esc> exit
+bind index          gg      first-entry
+bind index          G       last-entry
+bind index          <space> collapse-thread
+bind pager          <up>    previous-line #scroll inside the message rather than the index
+bind pager          <down>  next-line
+bind pager          G       bottom
+bind pager          g       group-reply
+bind pager          <esc>   exit
 
 #--- Sidebar ----
-bind index \CY sidebar-toggle
-bind index,pager \CP sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
-macro index \CB '<enter-command>toggle sidebar_visible<enter><refresh>'
-macro pager \CB '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+bind index          \CY     sidebar-toggle
+bind index,pager    \CP     sidebar-prev
+bind index,pager    \CN     sidebar-next
+bind index,pager    \CO     sidebar-open
+macro index         \CB     "<enter-command>toggle sidebar_visible<enter><refresh>"
+macro pager         \CB     "<enter-command>toggle sidebar_visible<enter><redraw-screen>"
 
 #--- Notmuch ----
-bind index,pager / vfolder-from-query #looks up for notmuch query
-bind index,pager \\ entire-thread #Reconstruct the entire thread with notmuch
-bind index,pager * modify-labels #+Add or -Remove notmuch tags
-bind index,pager µ modify-labels-then-hide #+Add or -Remove notmuch tags then hide the message
+bind index,pager    /       vfolder-from-query #looks up for notmuch query
+bind index,pager    \\      entire-thread #Reconstruct the entire thread with notmuch
+bind index,pager    *       modify-labels #+Add or -Remove notmuch tags
+bind index,pager    µ       modify-labels-then-hide #+Add or -Remove notmuch tags then hide the message
 ## Tags
-macro index,pager + "<modify-labels>+*<enter><sync-mailbox>" "tag as starred"
-macro index,pager - "<modify-labels>-*<enter><sync-mailbox>"  "tag as unstarred"
+macro index,pager   +       "<modify-labels>+*<enter><sync-mailbox>"    "star"
+macro index,pager   -       "<modify-labels>-*<enter><sync-mailbox>"    "unstar"
 
 #--- Archiving ----
-bind index,pager s save-message
-macro index S "<tag-entry><tag-prefix><toggle-new><tag-prefix><save-message>" "mark as read and save"
-macro index,pager <esc>s "<tag-thread><tag-prefix><save-message>" "mark as read and save"
-macro index,pager <esc>c "<tag-entry><tag-prefix><modify-labels>+decrypted<enter><tag-prefix><decrypt-save>" "decrypt and save"
-macro index,pager a "<modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "archive"
-macro index A "<tag-entry><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "Mark as read and archive"
-macro index,pager <esc>a "<tag-thread><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "archive thread"
-macro index <esc>A "<tag-thread><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "Mark as read and archive thread"
+bind index,pager    s       save-message
+macro index         S       "<tag-entry><tag-prefix><toggle-new><tag-prefix><save-message>"                     "mark as read and save"
+macro index,pager   <esc>s  "<tag-thread><tag-prefix><save-message>"                                            "save thread"
+macro index,pager   <esc>c  "<tag-entry><tag-prefix><modify-labels>+decrypted<enter><tag-prefix><decrypt-save>" "decrypt and save"
+macro index,pager   a       "<modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"             "archive"
+macro index         A       "<tag-entry><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"  "mark as read and archive"
+macro index,pager   <esc>a  "<tag-thread><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"                         "archive thread"
+macro index         <esc>A  "<tag-thread><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "mark as read and archive thread"
 
 #--- Refresh ----
-macro index U "<sync-mailbox>! notmuch new<enter><sync-mailbox>" "Update mailboxes with tags and all"
-macro index,pager O "! offlineimap -o<enter><sync-mailbox>" "Sync IMAP"
+macro index         U       "<sync-mailbox>! notmuch new<enter><sync-mailbox>"  "update notmuch database"
+macro index,pager   O       "! offlineimap -o<enter><sync-mailbox>"             "sync with offlineIMAP"
 
 #--- Junk ----
-macro index,pager x "<save-message>=Junk<enter>" "Move to =Junk"
-#macro index,pager X "<modify-labels-then-hide>-inbox -unread +junk +ignore<enter><sync-mailbox>" "tag as Junk mail"
+macro index,pager   x       "<save-message>=Junk<enter>"            "Move to =Junk"
+#macro index,pager  X       "<modify-labels-then-hide>-inbox -unread +junk +ignore<enter><sync-mailbox>" "tag as Junk mail"
 
 #others
-macro index M "T.*<enter>;" "Mark all messages"
-macro index,pager \er "|~/.email/org-mutt/remember-mail\n" "integrate with org-mode"
-macro pager 0 ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
-macro pager 1 ":set display_filter='t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move-vrf --pgp-short'; exec exit\n:exec display-message\n" "TOFU protection on" 
+macro index         M       "T.*<enter>;"                           "tag all messages"
+macro index,pager   \er     "|~/.email/org-mutt/remember-mail\n"    "capture with org-mode"
+macro pager         0       ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
+macro pager         1       ":set display_filter='t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move-vrf --pgp-short'; exec exit\n:exec display-message\n" "TOFU protection on" 
 
