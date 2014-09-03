@@ -31,6 +31,6 @@ Here’s an overview of my email setup:
 
 ----------
 
-See also: [Tips](http://hroy.eu/tips/mutt/)
+See also: [Tips](https://hroy.eu/tips/mutt/)
 
 
