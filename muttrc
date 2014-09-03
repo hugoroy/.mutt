@@ -24,9 +24,9 @@ set help=no  # remove the help top bar
 ## Directories and commands
 set header_cache="~/.mutt/cache/headers"
 set message_cachedir="~/.mutt/cache/bodies"
+set certificate_file="~/.mutt/certs"
 set tmpdir="~/.mutt/tmp"
-set sendmail="msmtpq" # queue sending emails
-set sendmail_wait=0 #send in the background
+set mailcap_path = ~/.mutt/mailcap
 set print_command="muttprint"
 
 # Regexps ----------------------------------------
@@ -53,7 +53,6 @@ set display_filter="t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move --pgp-short"
 ## Displaying html emails
 auto_view text/html
 alternative_order text/plain text/enriched text/html
-set mailcap_path = ~/.mutt/mailcap
 
 # Status Bar -------------------------------------
 set status_chars  = " *%A"
@@ -89,10 +88,13 @@ set include
 set forward_quote
 set rfc2047_parameters=yes
 
-# Colours ----------------------------------------
-source ~/.mutt/colors/hugo.muttrc
+# Send mail -------------------------------------
+set sendmail="msmtpq" # queue sending emails
+set sendmail_wait=0 #send in the background
+
 
 # Sources ----------------------------------------
+source ~/.mutt/colors/hugo.muttrc
 source ~/.email/mailboxes  # generated with offlineimap
 source ~/.mutt/identity.muttrc
 source ~/.mutt/alias.muttrc

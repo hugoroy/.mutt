@@ -1,8 +1,8 @@
 alias.muttrc
 cache/
+certs/
 identity.muttrc
-paul-rouget-mutt.rc/
-paulrouget.tgz
+others/
 subscribe.muttrc
 testing.muttrc
 tmp/
