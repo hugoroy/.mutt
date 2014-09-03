@@ -41,11 +41,11 @@ macro index         U       "<sync-mailbox>! notmuch new<enter><sync-mailbox>"  
 macro index,pager   O       "! offlineimap -o<enter><sync-mailbox>"             "sync with offlineIMAP"
 
 #--- Junk ----
-macro index,pager   x       "<save-message>=Junk<enter>"            "Move to =Junk"
-#macro index,pager  X       "<modify-labels-then-hide>-inbox -unread +junk +ignore<enter><sync-mailbox>" "tag as Junk mail"
+macro index,pager   x       "<save-message>=Junk<enter>"    "move to =Junk"
+macro index,pager   X       "<modify-labels-then-hide>-inbox -unread +junk<enter><sync-mailbox>" "tag as Junk mail"
 
 #others
-macro index         M       "T.*<enter>;"                           "tag all messages"
+macro index         M       "T.*<enter>;"       "tag all messages"
 macro index,pager   \er     "|~/.email/org-mutt/remember-mail\n"    "capture with org-mode"
 macro pager         0       ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
 macro pager         1       ":set display_filter='t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move-vrf --pgp-short'; exec exit\n:exec display-message\n" "TOFU protection on" 
