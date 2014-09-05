@@ -37,8 +37,8 @@ virtual-mailboxes \
                 "    tosdrtodo  "  "notmuch://?query=tag:tosdrgroup AND tag:todo NOT (tag:ignore)                                                   " \
                 "    tsback     "  "notmuch://?query=from:tosback@tosdr.org                                                                         " \
                 "    reports    "  "notmuch://?query=tag:reports NOT (tag:archive OR tag:ignore)                                                    " \
-                " ★ Starred     "  "notmuch://?query=tag:*&type=threads                                                                             " \
-                " ⌚ Waiting     "  "notmuch://?query=tag:waiting&type=threads                                                                       " \
+                " ★ Starred     "  "notmuch://?query=tag:*&type=threads" \
+                " ⌚ Waiting     "  "notmuch://?query=tag:waiting&type=threads" \
                 "   Recent      "  "notmuch://?query=date:last_week..today NOT tag:ignore NOT tag:junk                                              " \
                 "   Sent        "  "notmuch://?query=tag:from-me NOT tag:archive                                                                    " \
                 "   Trash       "  "notmuch://?query=tag:spam or tag:junk or folder:Trash or folder:Corbeille or folder:Spam or folder:Junk         " \
