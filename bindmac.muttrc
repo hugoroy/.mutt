@@ -23,13 +23,15 @@ bind index,pager    \\      entire-thread #Reconstruct the entire thread with no
 bind index,pager    *       modify-labels #+Add or -Remove notmuch tags
 bind index,pager    µ       modify-labels-then-hide #+Add or -Remove notmuch tags then hide the message
 ## Tags
-macro index,pager   +       "<modify-labels>+*<enter><sync-mailbox>"    "star"
-macro index,pager   -       "<modify-labels>-*<enter><sync-mailbox>"    "unstar"
+macro index,pager   +       "<modify-labels>+*<enter><sync-mailbox>"        "star"
+macro index,pager   -       "<modify-labels>-*<enter><sync-mailbox>"        "unstar"
+macro index,pager   w       "<modify-labels>+waiting<enter><sync-mailbox>"  "waiting for reply"
 
 #--- Archiving ----
 bind index,pager    s       save-message
 macro index         S       "<tag-entry><tag-prefix><toggle-new><tag-prefix><save-message>"                     "mark as read and save"
 macro index,pager   <esc>s  "<tag-thread><tag-prefix><save-message>"                                            "save thread"
+bind index,pager    <esc>d  decrypt-save
 macro index,pager   <esc>c  "<tag-entry><tag-prefix><modify-labels>+decrypted<enter><tag-prefix><decrypt-save>" "decrypt and save"
 macro index,pager   a       "<modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"             "archive"
 macro index         A       "<tag-entry><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"  "mark as read and archive"

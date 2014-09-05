@@ -7,3 +7,5 @@ image/svg+xml; eog %s
 application/vnd.oasis.opendocument.text; libreoffice %s
 application/vnd.oasis.opendocument.spreadsheet; libreoffice %s
 application/octet-stream; file-roller %s
+audio/*; vlc %s
+video/*; vlc %s
