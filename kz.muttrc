@@ -4,7 +4,7 @@ set nm_open_timeout = 3                             # Faster!
 set virtual_spoolfile=yes                           # enable virtual folders
 set nm_record = yes                                 # apply notmuch to email in mutt's record
 set nm_record_tags = "+from-me +inbox -archive"     # add tags to mutt's record
-#set nm_hidden_tags = "unread,draft,flagged,passed,replied,attachment"
+set nm_hidden_tags = "unread,draft,flagged,passed,replied,attachment,encrypted,signed,from-me"
 #set nm_unread_tag = "unread"
 set nm_exclude_tags = "ignore"
 
@@ -17,43 +17,32 @@ set nm_exclude_tags = "ignore"
 ## hooks: `man notmuch-hooks`
 
 virtual-mailboxes \
-                "   Perso       "  "notmuch://?query=(tag:inbox AND tag:perso) NOT (tag:archive OR tag:ignore)                                      " \
-                "   OpenInvNet  "  "notmuch://?query=(tag:inbox AND tag:oin) NOT (tag:archive OR tag:ignore)                                        " \
-                "   ToSDR       "  "notmuch://?query=tag:tosdr AND tag:inbox NOT (tag:archive OR tag:ignore)                                        " \
-                "   FSFE        "  "notmuch://?query=(tag:inbox AND tag:fsfe) NOT (tag:archive OR tag:ignore)                                       " \
-                "   lists       "  "notmuch://?query=(tag:lists OR tag:mod) NOT (tag:archive OR tag:ignore)                                         " \
-                " ⚑ Flagged     "  "notmuch://?query=tag:flagged                                                                                    " \
-                " ☕ INBOX       "  "notmuch://?query=tag:inbox NOT (tag:lists OR tag:archive)                                                       " \
-                "    team       "  "notmuch://?query=tag:fsfe AND tag:team NOT tag:reports NOT (tag:archive OR tag:ignore)                          " \
-                "    france     "  "notmuch://?query=tag:fsfe AND tag:france NOT (tag:archive OR tag:ignore)                                        " \
-                "    ga         "  "notmuch://?query=tag:fsfe AND tag:ga NOT (tag:archive OR tag:ignore) OR (to:mission@q.fsfe.org NOT tag:archive) " \
-                "    legal      "  "notmuch://?query=tag:fsfe AND tag:ftf NOT (tag:legal-network OR tag:archive OR tag:ignore)                      " \
-                "    lglntwrk   "  "notmuch://?query=tag:fsfe AND tag:legal-network NOT (tag:archive OR tag:ignore)                                 " \
-                "    trad       "  "notmuch://?query=tag:fsfe AND tag:trad NOT (tag:archive OR tag:ignore)                                          " \
-                "    web        "  "notmuch://?query=tag:fsfe AND tag:web NOT (tag:archive OR tag:ignore)                                           " \
-                "    campaigns  "  "notmuch://?query=tag:fsfe AND tag:campaigns NOT (tag:archive OR tag:ignore)                                     " \
-                "    ln-sig     "  "notmuch://?query=tag:legal-network AND tag:sig NOT (tag:archive OR tag:ignore)                                  " \
-                "    tosdrgroup "  "notmuch://?query=tag:tosdrgroup NOT (tag:archive OR tag:ignore)                                                 " \
-                "    tosdrtodo  "  "notmuch://?query=tag:tosdrgroup AND tag:todo NOT (tag:ignore)                                                   " \
-                "    tsback     "  "notmuch://?query=from:tosback@tosdr.org                                                                         " \
-                "    reports    "  "notmuch://?query=tag:reports NOT (tag:archive OR tag:ignore)                                                    " \
-                " ★ Starred     "  "notmuch://?query=tag:*&type=threads" \
-                " ⌚ Waiting     "  "notmuch://?query=tag:waiting&type=threads" \
-                "   Recent      "  "notmuch://?query=date:last_week..today NOT tag:ignore NOT tag:junk                                              " \
-                "   Sent        "  "notmuch://?query=tag:from-me NOT tag:archive                                                                    " \
-                "   Trash       "  "notmuch://?query=tag:spam or tag:junk or folder:Trash or folder:Corbeille or folder:Spam or folder:Junk         " \
-                "    EFB        "  "notmuch://?query=tag:efb                                                                                        " \
-                "    ScPo       "  "notmuch://?query=tag:sciencespo                                                                                 " \
-                "    ToS;DR     "  "notmuch://?query=tag:tosdr NOT tag:tosdrgroup                                                                   " \
-                "    2014       "  "notmuch://?query=date:01-2014..12-2014 NOT tag:ignore                                                           " \
-                "    2013       "  "notmuch://?query=date:01-2013..12-2013 NOT tag:ignore                                                           " \
-                "    2012       "  "notmuch://?query=date:01-2012..12-2012 NOT tag:ignore                                                           " \
-                "    2011       "  "notmuch://?query=date:01-2011..12-2011 NOT tag:ignore                                                           " \
-                "    2010       "  "notmuch://?query=date:01-2010..12-2010 NOT tag:ignore                                                           " \
-                "    2000s      "  "notmuch://?query=date:01-2000..12-2009 NOT tag:ignore                                                           " \
-                "   archives    "  "notmuch://?query=tag:archive OR folder:archives/ OR path:archives/** NOT tag:ignore                             "
-
-              # " New!" "notmuch://?query=(tag:unread OR date:yesterday..today) NOT (tag:archive OR tag:tosdrgroup OR tag:ignore)" \
+                "   Perso       "  "notmuch://?query=tag:inbox AND tag:perso                              " \
+                "   OpenInvNet  "  "notmuch://?query=tag:inbox AND tag:oin                                " \
+                "   ToSDR       "  "notmuch://?query=tag:inbox AND tag:tosdr                              " \
+                "   FSFE        "  "notmuch://?query=tag:inbox AND tag:fsfe                               " \
+                "   lists       "  "notmuch://?query=(tag:lists OR tag:mod) NOT tag:archive               " \
+                "    lglntwrk   "  "notmuch://?query=tag:fsfe AND tag:legal-network NOT tag:archive       " \
+                "    trad       "  "notmuch://?query=tag:fsfe AND tag:trad NOT tag:archive                " \
+                "    reports    "  "notmuch://?query=tag:reports NOT tag:archive                          " \
+                "    tosdrgroup "  "notmuch://?query=tag:tosdrgroup NOT tag:archive                       " \
+                "    tosdrtodo  "  "notmuch://?query=tag:tosdrgroup AND tag:todo                          " \
+                "    tsback     "  "notmuch://?query=from:tosback@tosdr.org                               " \
+                " ⚑ Flagged     "  "notmuch://?query=tag:flagged                                          " \
+                " ⌚ Waiting     "  "notmuch://?query=tag:waiting                                          " \
+                " ↻ Sent        "  "notmuch://?query=tag:from-me AND date:last_week..today                " \
+                "   Trash       "  "notmuch://?query=tag:spam or tag:junk or folder:Trash or folder:Corbeille or folder:Spam or folder:Junk" \
+                "   Recent      "  "notmuch://?query=date:last_week..today                                " \
+                "    2014       "  "notmuch://?query=date:01-2014..12-2014                                " \
+                "    2013       "  "notmuch://?query=date:01-2013..12-2013                                " \
+                "    2012       "  "notmuch://?query=date:01-2012..12-2012                                " \
+                "    2011       "  "notmuch://?query=date:01-2011..12-2011                                " \
+                "    2010       "  "notmuch://?query=date:01-2010..12-2010                                " \
+                "    2000s      "  "notmuch://?query=date:01-2000..12-2009                                " \
+                "   archives    "  "notmuch://?query=tag:archive OR folder:archives/ OR path:archives/**  "
+              # " New!" "notmuch://?query=(tag:unread OR date:yesterday..today) NOT (tag:archive OR tag:tosdrgroup)" \
+              # " ★ Starred     "  "notmuch://?query=tag:*                                   &type=threads" \
+              # " ☕ INBOX       "  "notmuch://?query=tag:inbox NOT (tag:lists OR tag:archive)             " \
 
 # Tags -------------------------------------------
 tag-transforms  "inbox"   "☕"  \
@@ -68,13 +57,14 @@ tag-transforms  "inbox"   "☕"  \
 tag-formats   "inbox"     "GI" \
               "unread"    "GU" \
               "replied"   "GR" \
-              "me"        "GS" \
+              "from-me"   "GS" \
               "*"         "Gs" \
+              "waiting"   "Gw" \
               "deleted"   "GD" \
               "invites"   "Gi"
 
 # Formats ----------------------------------------
-set index_format="%Z %?GS?%GS& ?%?Gs?%Gs& ?%?GR?%GR& ? %D  %-20.20F %?M?(%3M)&     ? %s %> %4c"
+set index_format="%Z %?Gw?%Gw& ?%?Gs?%Gs& ?%?GR?%GR& ? %D %-20.20F %?M?(%3M)&     ? %s %> %4c"
 set status_format = "Folder: %f   %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)?  %> %?p?( %p postponed )?"
 set pager_format = "                                      -%Z- %C/%m: %-20.20n   %s%*  -- %?g?(%g)? - (%P)" # All the space corresponds to the sidebar
 
