@@ -22,6 +22,7 @@ virtual-mailboxes \
                 "   ToSDR       "  "notmuch://?query=tag:inbox AND tag:tosdr                              " \
                 "   FSFE        "  "notmuch://?query=tag:inbox AND tag:fsfe                               " \
                 "   lists       "  "notmuch://?query=(tag:lists OR tag:mod) NOT tag:archive               " \
+                "    ftf        "  "notmuch://?query=tag:fsfe AND tag:ftf NOT tag:archive NOT tag:junk    " \
                 "    lglntwrk   "  "notmuch://?query=tag:fsfe AND tag:legal-network NOT tag:archive       " \
                 "    trad       "  "notmuch://?query=tag:fsfe AND tag:trad NOT tag:archive                " \
                 "    reports    "  "notmuch://?query=tag:reports NOT tag:archive                          " \
