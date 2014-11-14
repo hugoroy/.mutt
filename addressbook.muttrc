@@ -1,11 +1,11 @@
 # Adressbook -------------------------------------
 #
 ## Notmuch index: nottoomuch-addresses http://blog.tshirtman.fr/tags/nottoomuch + http://www.guru-group.fi/~too/nottoomuch/nottoomuch-addresses/
-set query_command="$HOME/.mutt/ntmw.sh %s"
-set query_format="%t %-25.24n %a %e"
+#set query_command="$HOME/.mutt/ntmw.sh %s"
+#set query_format="%t %-25.24n %a %e"
 
 ## cardDav server: pycarddav http://lostpackets.de/pycarddav/pages/usage.html
-#set query_command="pc_query -m '%s'"
+set query_command="pc_query -m '%s'"
 ###need to enable write support for that:
 ##macro index,pager A "<pipe-message>pycard-import<enter>" "add sender address to pycardsyncer"
 #macro index,pager A "<pipe-message>pycardsyncer --debug<enter>" "sync only"
