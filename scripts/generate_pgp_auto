@@ -3,7 +3,7 @@
 # Generate mutt pgp_auto* send-hooks from gpg pubring.
 # Redirect output to file and source that in muttrc.
 # Add the global hook _before_ sourcing the list:
-# send-hook . 'reset pgp_autoencrypt'
+# send-hook . 'reset crypt_autoencrypt'
 # -=*# created by erAck #*=- CopyLeft Eike Rathke 2008-01-08T01:36+0100
 
 # At least in an UTF-8 environment sed gets confused by 8-bit characters in
@@ -44,7 +44,7 @@ s/^uid:[^der]:[^<]*<\([^:>]\+@[^:>]\+\)>[^:]*:/\1/
 # escape dot meta characters, with escaped backslash for mutt
 s/\./\\\\./g
 # print hook
-s/\(.*\)/send-hook "!~l ~t \1" "set pgp_autoencrypt pgp_autosign"/p
+s/\(.*\)/send-hook "!~l ~t \1" "set crypt_autoencrypt"/p
 :NUSKIP
 n
 /^pub:/ b START
