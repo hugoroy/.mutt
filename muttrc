@@ -90,7 +90,7 @@ set rfc2047_parameters=yes
 
 # Send mail -------------------------------------
 set sendmail="msmtpq" # queue sending emails
-set sendmail_wait=0 #send in the background
+set sendmail_wait=-1  #send in the background
 
 
 # Sources ----------------------------------------
