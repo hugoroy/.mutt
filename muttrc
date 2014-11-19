@@ -66,7 +66,7 @@ set folder_format="%2C %t %N %f %> %4s %d"
 ignore *
 unignore from: to: cc: bcc: date: subject:
 unhdr_order *
-hdr_order Date From: To Cc Bcc X-Label: Message-ID: Subject
+hdr_order Date From To Cc Bcc X-Label Message-ID Subject
 
 # New message ------------------------------------
 set editor="vim -c 'set filetype=mkd' -c 'norm}'"
@@ -106,3 +106,4 @@ source ~/.mutt/kz.muttrc  # mutt-kz specific enhancements
 source ~/.mutt/bindmac.muttrc  # list of bindings and macros
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
+source ~/.mutt/private/gnupg-send-hook.muttrc
