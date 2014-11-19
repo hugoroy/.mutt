@@ -48,7 +48,7 @@ set pager_context=4      # no. of lines of context to give when scrolling messag
 set menu_scroll
 set smart_wrap
 unset markers  # no ugly plus signs
-set display_filter="t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move --pgp-short"  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom
+set display_filter="t-prot -cemt --bigq  -S 8 -M mutt --pgp-move --pgp-short"  # hides quotes that are too long, delete insanely long signatures  and move gpg output bottom
 
 ## Displaying html emails
 auto_view text/html
@@ -89,8 +89,8 @@ set forward_quote
 set rfc2047_parameters=yes
 
 # Send mail -------------------------------------
-set sendmail="msmtpq" # queue sending emails
-set sendmail_wait=-1  #send in the background
+set sendmail="msmtp" # queue sending emails
+set sendmail_wait=0  #send in the background
 
 
 # Sources ----------------------------------------
@@ -102,7 +102,7 @@ source ~/.mutt/addressbook.muttrc
 source ~/.mutt/subscribe.muttrc
 source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases
 #source ~/.mutt/notmuch.muttrc  # notmuch-mutt macros
-source ~/.mutt/kz.muttrc  # mutt-kz specific enhancements
+#source ~/.mutt/kz.muttrc  # mutt-kz specific enhancements
 source ~/.mutt/bindmac.muttrc  # list of bindings and macros
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
