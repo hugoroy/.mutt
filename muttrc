@@ -106,4 +106,4 @@ source ~/.mutt/kz.muttrc  # mutt-kz specific enhancements
 source ~/.mutt/bindmac.muttrc  # list of bindings and macros
 source ~/.mutt/sidebar.muttrc
 source ~/.mutt/gnupg.muttrc
-source ~/.mutt/private/gnupg-send-hook.muttrc
+#source ~/.mutt/private/gnupg-send-hook.muttrc
