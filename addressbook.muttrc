@@ -15,3 +15,6 @@ set query_command="pc_query -m '%s'"
 #bind editor <Tab> complete-query
 #macro index,pager A "<pipe-message>goobook reload && goobook add<return>" "add the sender address to Google contacts"
 
+## Using notmuch-addrlookup
+## https://github.com/aperezdc/notmuch-addrlookup-c
+# set query_command="notmuch-addrlookup --mutt '%s'"
