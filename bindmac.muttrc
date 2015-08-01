@@ -35,13 +35,13 @@ macro index,pager   W       "<modify-labels>-waiting<enter><sync-mailbox>"  "wai
 #--- Archiving ----
 bind index,pager    s       save-message
 macro index         S       "<tag-entry><tag-prefix><toggle-new><tag-prefix><save-message>"                     "mark as read and save"
-macro index,pager   <esc>s  "<tag-thread><tag-prefix><save-message>"                                            "save thread"
-bind index,pager    <esc>d  decrypt-save
-macro index,pager   <esc>c  "<tag-entry><tag-prefix><modify-labels>+decrypted<enter><tag-prefix><decrypt-save>=archives/" "decrypt and save offline"
+macro index,pager   \es  "<tag-thread><tag-prefix><save-message>"                                            "save thread"
+bind index,pager    \ed  decrypt-save
+macro index,pager   \ec  "<tag-entry><tag-prefix><modify-labels>+decrypted<enter><tag-prefix><decrypt-save>=archives/" "decrypt and save offline"
 macro index,pager   a       "<modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"             "archive"
 macro index         A       "<tag-entry><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"  "mark as read and archive"
-macro index,pager   <esc>a  "<tag-thread><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"                         "archive thread"
-macro index         <esc>A  "<tag-thread><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "mark as read and archive thread"
+macro index,pager   \ea  "<tag-thread><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"                         "archive thread"
+macro index         \eA  "<tag-thread><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "mark as read and archive thread"
 
 #--- Refresh ----
 macro index         U       "<sync-mailbox>! notmuch new<enter><sync-mailbox>"  "update notmuch database"
@@ -56,4 +56,3 @@ macro index         M       "T.*<enter>;"       "tag all messages"
 macro index,pager   \er     "|~/.email/org-mutt/remember-mail\n"    "capture with org-mode"
 macro pager         0       ":unset display_filter; exec exit\n:exec display-message\n" "TOFU protection off"
 macro pager         1       ":set display_filter='t-prot -cemt --bigq  -S 8 -M mutt-kz --pgp-move-vrf --pgp-short'; exec exit\n:exec display-message\n" "TOFU protection on" 
-
