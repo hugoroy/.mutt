@@ -1,0 +1,7 @@
+source ~/.mutt/ampoliros.muttrc
+
+color status red black
+set signature = "~/.mutt/drrnnc.signature" # my signature file
+set nm_record_tags = "from-me inbox work drrnnc"          # add tags to mutt's record
+
+macro index,pager o "<shell-escape>/usr/bin/offlineimap -a ampoliros -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap

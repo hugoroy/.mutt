@@ -1,0 +1,13 @@
+color status brightcyan black
+
+unmy_hdr * # remove all extra headers first.
+my_hdr From: Hugo Roy <hugo@hugoroy.eu>
+set from = "hugo@hugoroy.eu"
+set sendmail = "msmtp -a ampoliros"
+set signature = "~/.mutt/perso.signature" # my signature file
+set nm_record_tags = "from-me inbox perso ampoliros"          # add tags to mutt's record
+
+fcc-hook . =ampoliros/Envoyes
+save-hook . =ampoliros/Archive.2015
+
+macro index,pager o "<shell-escape>/usr/bin/offlineimap -a ampoliros -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
