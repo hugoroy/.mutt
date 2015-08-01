@@ -1,4 +1,4 @@
-text/html; lynx -display_charset=utf-8 -dump %s; print=epiphany %s; nametemplate=%s.html; copiousoutput
+text/html; lynx -display_charset=utf-8 -dump %s; print=chromium --incognito %s; nametemplate=%s.html; copiousoutput
 application/pdf; evince %s
 image/jpeg; eog %s
 image/png; eog %s
