@@ -1,1 +1,19 @@
-private/identity.muttrc
+set locale=fr_FR.UTF-8
+
+# Who am I? --------------------------------------
+set realname="Hugo Roy"
+
+# Accounts ---------------------------------------
+folder-hook .                              source ~/.mutt/perso.muttrc
+folder-hook ampoliros/*                    source ~/.mutt/perso.muttrc
+folder-hook fsfe/*                         source ~/.mutt/fsfe.muttrc
+send-hook   "~f @fsfe*"                    source ~/.mutt/fsfe.muttrc
+send-hook   "~C @fsfe*"                    source ~/.mutt/fsfe.muttrc
+folder-hook tosdr/*                        source ~/.mutt/tosdr.muttrc
+folder-hook tosdrgroup/*                   source ~/.mutt/tosdr.muttrc
+send-hook   "~f tosdr*"                    source ~/.mutt/tosdr.muttrc
+send-hook   "~C @tosdr.org"                source ~/.mutt/tosdr.muttrc
+folder-hook /var/spool/mail/hrd/*          source ~/.mutt/perso.muttrc
+folder-hook "tag:ampoliros OR tag:perso NOT tag:tosdr NOT tag:fsfe" source ~/.mutt/perso.muttrc
+
+folder-hook . "push <last-entry><current-middle>"
