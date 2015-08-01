@@ -1,5 +1,5 @@
 # Main options -----------------------------------
-set nm_default_uri = "notmuch:///home/hrd/Mail"     # Where is ".notmuch"
+set nm_default_uri = "notmuch:///home/hugo/Mail"     # Where is ".notmuch"
 set nm_open_timeout = 3                             # Faster!
 set virtual_spoolfile=yes                           # enable virtual folders
 set nm_record = yes                                 # apply notmuch to email in mutt's record
@@ -17,8 +17,7 @@ set nm_exclude_tags = "ignore"
 ## hooks: `man notmuch-hooks`
 
 virtual-mailboxes \
-                "   Perso       "  "notmuch://?query=tag:inbox AND tag:perso                              " \
-                "   OpenInvNet  "  "notmuch://?query=tag:inbox AND tag:oin                                " \
+                "   INBOX       "  "notmuch://?query=tag:inbox AND (tag:ampoliros OR tag:perso NOT tag:tosdr NOT tag:fsfe)" \
                 "   ToSDR       "  "notmuch://?query=tag:inbox AND tag:tosdr                              " \
                 "   FSFE        "  "notmuch://?query=tag:inbox AND tag:fsfe                               " \
                 "   lists       "  "notmuch://?query=(tag:lists OR tag:mod) NOT tag:archive               " \
@@ -29,11 +28,14 @@ virtual-mailboxes \
                 "    tosdrgroup "  "notmuch://?query=tag:tosdrgroup NOT tag:archive                       " \
                 "    tosdrtodo  "  "notmuch://?query=tag:tosdrgroup AND tag:todo                          " \
                 "    tsback     "  "notmuch://?query=from:tosback@tosdr.org                               " \
+                "   Antalya     "  "notmuch://?query=tag:Antalya                              " \
                 " ⚑ Flagged     "  "notmuch://?query=tag:flagged                                          " \
                 " ⌚ Waiting     "  "notmuch://?query=tag:waiting                                          " \
                 " ↻ Sent        "  "notmuch://?query=tag:from-me AND date:last_week..today                " \
+                "   Inboxes     "  "notmuch://?query=tag:inbox                                            " \
                 "   Trash       "  "notmuch://?query=tag:spam or tag:junk or folder:Trash or folder:Corbeille or folder:Spam or folder:Junk" \
-                "   Recent      "  "notmuch://?query=date:last_week..today                                " \
+                "   Recent      "  "notmuch://?query=date:last_week..today NOT tag:junk                   " \
+                "    2015       "  "notmuch://?query=date:01-2015..12-2015                                " \
                 "    2014       "  "notmuch://?query=date:01-2014..12-2014                                " \
                 "    2013       "  "notmuch://?query=date:01-2013..12-2013                                " \
                 "    2012       "  "notmuch://?query=date:01-2012..12-2012                                " \
@@ -67,5 +69,5 @@ tag-formats   "inbox"     "GI" \
 # Formats ----------------------------------------
 set index_format="%Z %?Gw?%Gw& ?%?Gs?%Gs& ?%?GR?%GR& ? %D %-20.20F %?M?(%3M)&     ? %s %> %4c"
 set status_format = "Folder: %f   %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)?  %> %?p?( %p postponed )?"
-set pager_format = "                                      -%Z- %C/%m: %-20.20n   %s%*  -- %?g?(%g)? - (%P)" # All the space corresponds to the sidebar
+set pager_format = "-%Z- %C/%m: %-20.20n   %s%*  -- %?g?(%g)? - (%P)" # All the space corresponds to the sidebar
 
