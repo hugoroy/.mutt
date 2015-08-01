@@ -1,7 +1,9 @@
 .mutt
 =====
 
-My ~/.[mutt] config (now customised for [mutt-kz])
+My ~/.[mutt] config
+
+It is customised for the [mutt-kz] fork (mutt+notmuch), else see the `mutt-classic` branch.
 
 [mutt]: http://www.mutt.org/
 [mutt-kz]: https://github.com/karelzak/mutt-kz
@@ -14,10 +16,9 @@ My ~/.[mutt] config (now customised for [mutt-kz])
 
 Here’s an overview of my email setup:
 
-  - 2 email servers used (one at home, for personal email; one @fsfe.org)
   - 2-way sync with [offlineimap] to ~/Mail maildirs
     
-    offlineimap post-sync hooks call `notmuch new`
+    offlineimap post-sync hooks call `notmuch new` to update the notmuch email database
 
   - ~/Mail indexing with [notmuch] 
 
