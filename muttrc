@@ -1,9 +1,9 @@
 # Where’s the mail? ------------------------------
 set folder=~/Mail 
 set spoolfile=~/Mail/ampoliros/INBOX  
-set postponed=~/Mail/ampoliros/Drafts
-set record=~/Mail/ampoliros/Sent
-set mbox=~/Mail/ampoliros/Archive
+set mbox=~/Mail/ampoliros/INBOX
+set postponed=~/Mail/ampoliros/Brouillons
+set record=~/Mail/ampoliros/Envoyes
 set mbox_type=Maildir
 # set realname=""
 # set from=""
@@ -17,6 +17,7 @@ set copy  # save copies of sent messages
 set delete  # don't ask, just do
 unset confirmappend  # don't ask, just do!
 set quit=ask-yes # ask if i want to quit
+set postpone=ask-yes # save as draft? yes by default
 set wait_key=no
 unset mark_old  
 set help=no  # remove the help top bar
@@ -69,7 +70,8 @@ unhdr_order *
 hdr_order Date From To Cc Bcc X-Label Message-ID Subject
 
 # New message ------------------------------------
-set editor="vim -c 'set filetype=mkd' -c 'norm}'"
+#set editor="emacsclient -c"
+set editor="vim -c 'set filetype=mail' -c 'set background=dark' -c 'norm}'"
 set edit_headers # edit the headers in the email editor
 set envelope_from
 set sig_dashes=no
@@ -89,8 +91,9 @@ set forward_quote
 set rfc2047_parameters=yes
 
 # Send mail -------------------------------------
-set sendmail="msmtpq" # queue sending emails
-set sendmail_wait=-1  #send in the background
+set sendmail="msmtp"
+# set sendmail_wait=-1  #send in the background
+
 
 
 # Sources ----------------------------------------
