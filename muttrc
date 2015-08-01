@@ -70,8 +70,8 @@ unhdr_order *
 hdr_order Date From To Cc Bcc X-Label Message-ID Subject
 
 # New message ------------------------------------
-#set editor="emacsclient -c"
-set editor="vim -c 'set filetype=mail' -c 'set background=dark' -c 'norm}'"
+set editor="emacsclient -t -c -a \"\""
+#set editor="vim -c 'set filetype=mail' -c 'set background=dark' -c 'norm}'"
 set edit_headers # edit the headers in the email editor
 set envelope_from
 set sig_dashes=no
@@ -103,7 +103,7 @@ source ~/.mutt/identity.muttrc
 source ~/.mutt/alias.muttrc
 source ~/.mutt/addressbook.muttrc
 source ~/.mutt/subscribe.muttrc
-source ~/.svns/fsfe-internal/Howto/GPG/mutt-gpg-aliases
+source ~/.svnRepos/fsfe-internal/Howto/GPG/mutt-gpg-aliases
 #source ~/.mutt/notmuch.muttrc  # notmuch-mutt macros
 source ~/.mutt/kz.muttrc  # mutt-kz specific enhancements
 source ~/.mutt/bindmac.muttrc  # list of bindings and macros
