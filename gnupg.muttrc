@@ -1,4 +1,4 @@
-source gpg.rc
+source ~/.mutt/gpg.rc
 
 # specify the uid to use when encrypting/signing
 set pgp_sign_as=0x8D022C99B3D7B795
