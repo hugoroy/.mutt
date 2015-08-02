@@ -1,7 +1,7 @@
-source /usr/share/doc/mutt-kz/samples/gpg.rc
+source gpg.rc
 
 # specify the uid to use when encrypting/signing
-set pgp_sign_as=0xB3D7B795 
+set pgp_sign_as=0x8D022C99B3D7B795
 
 set pgp_timeout=3600
 
