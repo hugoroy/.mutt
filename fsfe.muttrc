@@ -10,5 +10,3 @@ set signature = "~/.mutt/fsfe.signature" # my signature file
 set nm_record_tags = "from-me inbox fsfe"          # add tags to mutt's record
 
 set locale=en_GB.UTF-8
-
-macro index,pager o  "<shell-escape>/usr/bin/offlineimap -a fsfe -q -o<enter>" "sync IMAP" # quick-sync ~/Mail immediately with offlineimap
