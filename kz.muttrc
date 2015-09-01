@@ -28,8 +28,7 @@ virtual-mailboxes \
                 "    tosdrgroup "  "notmuch://?query=tag:tosdrgroup NOT tag:archive                       " \
                 "    tosdrtodo  "  "notmuch://?query=tag:tosdrgroup AND tag:todo                          " \
                 "    tsback     "  "notmuch://?query=from:tosback@tosdr.org                               " \
-                "   Antalya     "  "notmuch://?query=tag:Antalya                              " \
-                " ⚑ Flagged     "  "notmuch://?query=tag:flagged                                          " \
+                " ⚑ Flagged     "  "notmuch://?query=tag:flagged or tag:*                                 " \
                 " ⌚ Waiting     "  "notmuch://?query=tag:waiting                                          " \
                 " ↻ Sent        "  "notmuch://?query=tag:from-me AND date:last_week..today                " \
                 "   Inboxes     "  "notmuch://?query=tag:inbox                                            " \
