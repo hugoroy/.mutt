@@ -40,6 +40,7 @@ bind index,pager    \ed  decrypt-save
 macro index,pager   \ec  "<tag-entry><tag-prefix><modify-labels>+decrypted<enter><tag-prefix><decrypt-save>=archives/" "decrypt and save offline"
 macro index,pager   a       "<modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"             "archive"
 macro index         A       "<tag-entry><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"  "mark as read and archive"
+macro pager         A       "<modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"  "archive"
 macro index,pager   \ea  "<tag-thread><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>"                         "archive thread"
 macro index         \eA  "<tag-thread><tag-prefix><toggle-new><tag-prefix><modify-labels-then-hide>-unread -inbox +archive<enter><sync-mailbox>" "mark as read and archive thread"
 
