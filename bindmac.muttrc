@@ -46,7 +46,7 @@ macro index         \eA  "<tag-thread><tag-prefix><toggle-new><tag-prefix><modif
 
 #--- Refresh ----
 macro index         U       "<sync-mailbox>! notmuch new<enter><sync-mailbox>"  "update notmuch database"
-macro index,pager   o       "! offlineimap -o -f INBOX -q -u ttyui<enter><sync-mailbox>"             "quick sync with offlineIMAP"
+macro index,pager   o       "! offlineimap -o -f INBOX<enter><sync-mailbox>"              "sync INBOX with offlineIMAP"
 macro index,pager   O       "! offlineimap -o<enter><sync-mailbox>"             "sync with offlineIMAP"
 
 #--- Junk ----
