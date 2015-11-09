@@ -3,6 +3,7 @@ color status brightcyan black
 unmy_hdr * # remove all extra headers first.
 my_hdr From: Hugo Roy <hugo@hugoroy.eu>
 set from = "hugo@hugoroy.eu"
+set envelope_from
 set sendmail = "msmtp -a ampoliros"
 set signature = "~/.mutt/perso.signature" # my signature file
 set nm_record_tags = "from-me inbox perso ampoliros"          # add tags to mutt's record
